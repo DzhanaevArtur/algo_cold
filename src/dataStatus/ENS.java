@@ -3,22 +3,23 @@ package dataStatus;
 import data.DATA;
 import data.TimeStamp;
 import dataAttribute.Quality;
+import dataAttribute.Unit;
 
 /*
- * SPS (Single point status)
- * Недублированное состояние
+ * INS (Enumerated status)
+ * Пронумерованное состояние
  */
 
-public class SPS extends DATA {
+public class ENS extends DATA {
 
 // Состояние
-    private Boolean stVal = Boolean.FALSE;
+    private String stVal = "";
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
 
 // Замещение
     private Boolean subEna = Boolean.FALSE;
-    private Boolean subVal = Boolean.FALSE;
+    private Integer subVal = 0;
     private Quality subQ = new Quality();
     private String subID = "";
     private Boolean blkEna = Boolean.FALSE;
@@ -30,11 +31,11 @@ public class SPS extends DATA {
     private String cdcName = "";
     private String dataNs = "";
 
-    public Boolean getStVal() {
+    public String getStVal() {
         return stVal;
     }
 
-    public void setStVal(Boolean stVal) {
+    public void setStVal(String stVal) {
         this.stVal = stVal;
     }
 
@@ -62,11 +63,11 @@ public class SPS extends DATA {
         this.subEna = subEna;
     }
 
-    public Boolean getSubVal() {
+    public Integer getSubVal() {
         return subVal;
     }
 
-    public void setSubVal(Boolean subVal) {
+    public void setSubVal(Integer subVal) {
         this.subVal = subVal;
     }
 

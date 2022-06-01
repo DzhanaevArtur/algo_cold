@@ -12,33 +12,40 @@ import dataAttribute.Quality;
 
 public class APC extends DATA {
 
-// Заданное значение и измеренные атрибуты
-    private AnalogueValue setMag = new AnalogueValue();
+// Управление и состояние
     private Originator origin = new Originator();
-    private TimeStamp operTm = new TimeStamp();
+    private Integer ctINum = 0;
+    private AnalogueValue mxVal = new AnalogueValue();
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
+    private Boolean stSeld = Boolean.FALSE;
+    private Boolean opRcvd = Boolean.FALSE;
+    private Boolean opOk = Boolean.FALSE;
+    private TimeStamp tOpOk = new TimeStamp();
 
-// Конфигурация, описание и расширение
+// Замещение
+    private Boolean subEna = Boolean.FALSE;
+    private AnalogueValue subVal = new AnalogueValue();
+    private Quality subQ = new Quality();
+    private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
+
+    // Конфигурация, описание и расширение
     private CtIModels ctIModel = new CtIModels();
+    private Integer sboTimeout = 0;
+    private SboClasses sboClass = new SboClasses();
     private Unit units = new Unit();
+    private Integer db = 0;
     private ScaledValueConfig sVC = new ScaledValueConfig();
-    private AnalogueValue minVal = new AnalogueValue();
-    private AnalogueValue maxVal = new AnalogueValue();
+    private Integer minVal = 0;
+    private Integer maxVal = 0;
     private AnalogueValue stepSize = new AnalogueValue();
+    private Integer operTimeout = 0;
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
-
-    public AnalogueValue getSetMag() {
-        return setMag;
-    }
-
-    public void setSetMag(AnalogueValue setMag) {
-        this.setMag = setMag;
-    }
 
     public Originator getOrigin() {
         return origin;
@@ -48,12 +55,20 @@ public class APC extends DATA {
         this.origin = origin;
     }
 
-    public TimeStamp getOperTm() {
-        return operTm;
+    public Integer getCtINum() {
+        return ctINum;
     }
 
-    public void setOperTm(TimeStamp operTm) {
-        this.operTm = operTm;
+    public void setCtINum(Integer ctINum) {
+        this.ctINum = ctINum;
+    }
+
+    public AnalogueValue getMxVal() {
+        return mxVal;
+    }
+
+    public void setMxVal(AnalogueValue mxVal) {
+        this.mxVal = mxVal;
     }
 
     public Quality getQ() {
@@ -72,12 +87,100 @@ public class APC extends DATA {
         this.t = t;
     }
 
+    public Boolean getStSeld() {
+        return stSeld;
+    }
+
+    public void setStSeld(Boolean stSeld) {
+        this.stSeld = stSeld;
+    }
+
+    public Boolean getOpRcvd() {
+        return opRcvd;
+    }
+
+    public void setOpRcvd(Boolean opRcvd) {
+        this.opRcvd = opRcvd;
+    }
+
+    public Boolean getOpOk() {
+        return opOk;
+    }
+
+    public void setOpOk(Boolean opOk) {
+        this.opOk = opOk;
+    }
+
+    public TimeStamp gettOpOk() {
+        return tOpOk;
+    }
+
+    public void settOpOk(TimeStamp tOpOk) {
+        this.tOpOk = tOpOk;
+    }
+
+    public Boolean getSubEna() {
+        return subEna;
+    }
+
+    public void setSubEna(Boolean subEna) {
+        this.subEna = subEna;
+    }
+
+    public AnalogueValue getSubVal() {
+        return subVal;
+    }
+
+    public void setSubVal(AnalogueValue subVal) {
+        this.subVal = subVal;
+    }
+
+    public Quality getSubQ() {
+        return subQ;
+    }
+
+    public void setSubQ(Quality subQ) {
+        this.subQ = subQ;
+    }
+
+    public String getSubID() {
+        return subID;
+    }
+
+    public void setSubID(String subID) {
+        this.subID = subID;
+    }
+
+    public Boolean getBlkEna() {
+        return blkEna;
+    }
+
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
+    }
+
     public CtIModels getCtIModel() {
         return ctIModel;
     }
 
     public void setCtIModel(CtIModels ctIModel) {
         this.ctIModel = ctIModel;
+    }
+
+    public Integer getSboTimeout() {
+        return sboTimeout;
+    }
+
+    public void setSboTimeout(Integer sboTimeout) {
+        this.sboTimeout = sboTimeout;
+    }
+
+    public SboClasses getSboClass() {
+        return sboClass;
+    }
+
+    public void setSboClass(SboClasses sboClass) {
+        this.sboClass = sboClass;
     }
 
     public Unit getUnits() {
@@ -88,6 +191,14 @@ public class APC extends DATA {
         this.units = units;
     }
 
+    public Integer getDb() {
+        return db;
+    }
+
+    public void setDb(Integer db) {
+        this.db = db;
+    }
+
     public ScaledValueConfig getsVC() {
         return sVC;
     }
@@ -96,19 +207,19 @@ public class APC extends DATA {
         this.sVC = sVC;
     }
 
-    public AnalogueValue getMinVal() {
+    public Integer getMinVal() {
         return minVal;
     }
 
-    public void setMinVal(AnalogueValue minVal) {
+    public void setMinVal(Integer minVal) {
         this.minVal = minVal;
     }
 
-    public AnalogueValue getMaxVal() {
+    public Integer getMaxVal() {
         return maxVal;
     }
 
-    public void setMaxVal(AnalogueValue maxVal) {
+    public void setMaxVal(Integer maxVal) {
         this.maxVal = maxVal;
     }
 
@@ -118,6 +229,14 @@ public class APC extends DATA {
 
     public void setStepSize(AnalogueValue stepSize) {
         this.stepSize = stepSize;
+    }
+
+    public Integer getOperTimeout() {
+        return operTimeout;
+    }
+
+    public void setOperTimeout(Integer operTimeout) {
+        this.operTimeout = operTimeout;
     }
 
     public String getD() {

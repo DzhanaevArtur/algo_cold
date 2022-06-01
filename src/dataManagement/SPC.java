@@ -13,21 +13,22 @@ import dataAttribute.Quality;
 public class SPC extends DATA {
 
 // Управление и состояние
-    private Boolean ctIVal = Boolean.FALSE;
-    private TimeStamp operTm = new TimeStamp();
     private Originator origin = new Originator();
     private Integer ctINum = 0;
     private Boolean stVal = Boolean.FALSE;
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
     private Boolean stSeld = Boolean.FALSE;
+    private Boolean opRcvd = Boolean.FALSE;
+    private Boolean opOk = Boolean.FALSE;
+    private TimeStamp tOpOk = new TimeStamp();
 
 // Замещение
     private Boolean subEna = Boolean.FALSE;
     private ValWithTrans subVal = new ValWithTrans();
     private Quality subQ = new Quality();
     private String subID = "";
-
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
     private PulseConfig pulseConfig = new PulseConfig();
@@ -39,22 +40,6 @@ public class SPC extends DATA {
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
-
-    public Boolean getCtIVal() {
-        return ctIVal;
-    }
-
-    public void setCtIVal(Boolean ctIVal) {
-        this.ctIVal = ctIVal;
-    }
-
-    public TimeStamp getOperTm() {
-        return operTm;
-    }
-
-    public void setOperTm(TimeStamp operTm) {
-        this.operTm = operTm;
-    }
 
     public Originator getOrigin() {
         return origin;
@@ -104,6 +89,30 @@ public class SPC extends DATA {
         this.stSeld = stSeld;
     }
 
+    public Boolean getOpRcvd() {
+        return opRcvd;
+    }
+
+    public void setOpRcvd(Boolean opRcvd) {
+        this.opRcvd = opRcvd;
+    }
+
+    public Boolean getOpOk() {
+        return opOk;
+    }
+
+    public void setOpOk(Boolean opOk) {
+        this.opOk = opOk;
+    }
+
+    public TimeStamp gettOpOk() {
+        return tOpOk;
+    }
+
+    public void settOpOk(TimeStamp tOpOk) {
+        this.tOpOk = tOpOk;
+    }
+
     public Boolean getSubEna() {
         return subEna;
     }
@@ -134,6 +143,14 @@ public class SPC extends DATA {
 
     public void setSubID(String subID) {
         this.subID = subID;
+    }
+
+    public Boolean getBlkEna() {
+        return blkEna;
+    }
+
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
     }
 
     public PulseConfig getPulseConfig() {

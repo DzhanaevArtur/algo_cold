@@ -15,20 +15,22 @@ import dataAttribute.Quality;
 public class INC extends DATA {
 
 // Управление и состояние
-    private Integer ctIVal = 0;
-    private TimeStamp operTm = new TimeStamp();
     private Originator origin = new Originator();
     private Integer ctINum = 0;
     private Integer stVal = 0;
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
     private Boolean stSeld = Boolean.FALSE;
+    private Boolean opRcvd = Boolean.FALSE;
+    private Boolean opOk = Boolean.FALSE;
+    private TimeStamp tOpOk = new TimeStamp();
 
 // Замещение
     private Boolean subEna = Boolean.FALSE;
     private Integer subVal = 0;
     private Quality subQ = new Quality();
     private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
     private CtIModels ctIModel = new CtIModels();
@@ -42,22 +44,6 @@ public class INC extends DATA {
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
-
-    public Integer getCtIVal() {
-        return ctIVal;
-    }
-
-    public void setCtIVal(Integer ctIVal) {
-        this.ctIVal = ctIVal;
-    }
-
-    public TimeStamp getOperTm() {
-        return operTm;
-    }
-
-    public void setOperTm(TimeStamp operTm) {
-        this.operTm = operTm;
-    }
 
     public Originator getOrigin() {
         return origin;
@@ -107,6 +93,30 @@ public class INC extends DATA {
         this.stSeld = stSeld;
     }
 
+    public Boolean getOpRcvd() {
+        return opRcvd;
+    }
+
+    public void setOpRcvd(Boolean opRcvd) {
+        this.opRcvd = opRcvd;
+    }
+
+    public Boolean getOpOk() {
+        return opOk;
+    }
+
+    public void setOpOk(Boolean opOk) {
+        this.opOk = opOk;
+    }
+
+    public TimeStamp gettOpOk() {
+        return tOpOk;
+    }
+
+    public void settOpOk(TimeStamp tOpOk) {
+        this.tOpOk = tOpOk;
+    }
+
     public Boolean getSubEna() {
         return subEna;
     }
@@ -137,6 +147,14 @@ public class INC extends DATA {
 
     public void setSubID(String subID) {
         this.subID = subID;
+    }
+
+    public Boolean getBlkEna() {
+        return blkEna;
+    }
+
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
     }
 
     public CtIModels getCtIModel() {

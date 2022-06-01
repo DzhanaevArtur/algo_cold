@@ -2,15 +2,23 @@ package dataDescription;
 
 import data.DATA;
 
+/*
+ * LPL (Logical node name plate)
+ * Табличка с именем логического узла
+ */
+
 public class LPL extends DATA {
 
+// Конфигурация, описание и расширение
     private String vendor = "";
     private String swRev = "";
     private String d = "";
     private String dU = "";
     private String configRev = "";
-    private String idNs = "";
-    private String inNs = "";
+    private Integer paramRev = 0;
+    private Integer valRev = 0;
+    private String ldNs = "";
+    private String lnNs = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
@@ -55,20 +63,36 @@ public class LPL extends DATA {
         this.configRev = configRev;
     }
 
-    public String getIdNs() {
-        return idNs;
+    public Integer getParamRev() {
+        return paramRev;
     }
 
-    public void setIdNs(String idNs) {
-        this.idNs = idNs;
+    public void setParamRev(Integer paramRev) {
+        this.paramRev = paramRev;
     }
 
-    public String getInNs() {
-        return inNs;
+    public Integer getValRev() {
+        return valRev;
     }
 
-    public void setInNs(String inNs) {
-        this.inNs = inNs;
+    public void setValRev(Integer valRev) {
+        this.valRev = valRev;
+    }
+
+    public String getLdNs() {
+        return ldNs;
+    }
+
+    public void setLdNs(String ldNs) {
+        this.ldNs = ldNs;
+    }
+
+    public String getLnNs() {
+        return lnNs;
+    }
+
+    public void setLnNs(String lnNs) {
+        this.lnNs = lnNs;
     }
 
     public String getCdcNs() {

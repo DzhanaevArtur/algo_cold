@@ -2,6 +2,7 @@ package dataStatus;
 
 import data.DATA;
 import data.TimeStamp;
+import dataAttribute.Originator;
 import dataAttribute.Quality;
 
 /*
@@ -19,6 +20,10 @@ public class ACT extends DATA {
     private Boolean neut = Boolean.FALSE;
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
+    private Originator originSrc = new Originator();
+    private TimeStamp operTmPhsA = new TimeStamp();
+    private TimeStamp operTmPhsB = new TimeStamp();
+    private TimeStamp operTmPhsC = new TimeStamp();
 
 // Конфигурация, описание и расширение
     private TimeStamp operTm = new TimeStamp();
@@ -82,6 +87,38 @@ public class ACT extends DATA {
 
     public void setT(TimeStamp t) {
         this.t = t;
+    }
+
+    public Originator getOriginSrc() {
+        return originSrc;
+    }
+
+    public void setOriginSrc(Originator originSrc) {
+        this.originSrc = originSrc;
+    }
+
+    public TimeStamp getOperTmPhsA() {
+        return operTmPhsA;
+    }
+
+    public void setOperTmPhsA(TimeStamp operTmPhsA) {
+        this.operTmPhsA = operTmPhsA;
+    }
+
+    public TimeStamp getOperTmPhsB() {
+        return operTmPhsB;
+    }
+
+    public void setOperTmPhsB(TimeStamp operTmPhsB) {
+        this.operTmPhsB = operTmPhsB;
+    }
+
+    public TimeStamp getOperTmPhsC() {
+        return operTmPhsC;
+    }
+
+    public void setOperTmPhsC(TimeStamp operTmPhsC) {
+        this.operTmPhsC = operTmPhsC;
     }
 
     public TimeStamp getOperTm() {

@@ -18,6 +18,7 @@ public class CMV extends DATA {
     private Vector instCVal = new Vector();
     private Vector cVal = new Vector();
     private String range = "";
+    private String rangeAng = "";
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
 
@@ -26,12 +27,15 @@ public class CMV extends DATA {
     private Vector subCVal = new Vector();
     private Quality subQ = new Quality();
     private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
-    private Unit unit = new Unit();
+    private Unit units = new Unit();
     private Integer db = 0;
+    private Integer dbAng = 0;
     private Integer zeroDb = 0;
     private String rangeC = "";
+    private String rangeAngC = "";
     private ScaledValueConfig magSVC = new ScaledValueConfig();
     private ScaledValueConfig angSVC = new ScaledValueConfig();
     private String angRef = "";
@@ -64,6 +68,14 @@ public class CMV extends DATA {
 
     public void setRange(String range) {
         this.range = range;
+    }
+
+    public String getRangeAng() {
+        return rangeAng;
+    }
+
+    public void setRangeAng(String rangeAng) {
+        this.rangeAng = rangeAng;
     }
 
     public Quality getQ() {
@@ -114,12 +126,20 @@ public class CMV extends DATA {
         this.subID = subID;
     }
 
-    public Unit getUnit() {
-        return unit;
+    public Boolean getBlkEna() {
+        return blkEna;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
+    }
+
+    public Unit getUnits() {
+        return units;
+    }
+
+    public void setUnits(Unit units) {
+        this.units = units;
     }
 
     public Integer getDb() {
@@ -134,6 +154,14 @@ public class CMV extends DATA {
         return zeroDb;
     }
 
+    public Integer getDbAng() {
+        return dbAng;
+    }
+
+    public void setDbAng(Integer dbAng) {
+        this.dbAng = dbAng;
+    }
+
     public void setZeroDb(Integer zeroDb) {
         this.zeroDb = zeroDb;
     }
@@ -144,6 +172,14 @@ public class CMV extends DATA {
 
     public void setRangeC(String rangeC) {
         this.rangeC = rangeC;
+    }
+
+    public String getRangeAngC() {
+        return rangeAngC;
+    }
+
+    public void setRangeAngC(String rangeAngC) {
+        this.rangeAngC = rangeAngC;
     }
 
     public ScaledValueConfig getMagSVC() {

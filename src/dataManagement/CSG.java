@@ -1,29 +1,62 @@
-package dataDescription;
+package dataManagement;
 
-import data.DATA;
 import dataAttribute.Point;
 import dataAttribute.Unit;
 
 import java.util.ArrayList;
 
-public class CSD extends DATA {
+/*
+ * CSG (Curve shape setting)
+ * Настройка формы кривой
+ */
 
-    private Unit xUnits = new Unit();
-    private String xD = "";
-    private String xDU = "";
-    private Unit yUnits = new Unit();
-    private String yD = "";
-    private String yDU = "";
-    private Unit zUnits = new Unit();
-    private String zD = "";
-    private String zDU = "";
+public class CSG {
+
+// Установка состояния
+    private Float pointZ = 0.0F;
     private Integer numPts = 0;
     private ArrayList<Point> crvPts = new ArrayList<>();
+
+// Конфигурация, описание и расширение
+    private Unit xUnits = new Unit();
+    private Unit yUnits = new Unit();
+    private Unit zUnits = new Unit();
+    private Integer maxPts = 0;
+    private String xD = "";
+    private String xDU = "";
+    private String yD = "";
+    private String yDU = "";
+    private String zD = "";
+    private String zDU = "";
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
+
+    public Float getPointZ() {
+        return pointZ;
+    }
+
+    public void setPointZ(Float pointZ) {
+        this.pointZ = pointZ;
+    }
+
+    public Integer getNumPts() {
+        return numPts;
+    }
+
+    public void setNumPts(Integer numPts) {
+        this.numPts = numPts;
+    }
+
+    public ArrayList<Point> getCrvPts() {
+        return crvPts;
+    }
+
+    public void setCrvPts(ArrayList<Point> crvPts) {
+        this.crvPts = crvPts;
+    }
 
     public Unit getxUnits() {
         return xUnits;
@@ -31,6 +64,30 @@ public class CSD extends DATA {
 
     public void setxUnits(Unit xUnits) {
         this.xUnits = xUnits;
+    }
+
+    public Unit getyUnits() {
+        return yUnits;
+    }
+
+    public void setyUnits(Unit yUnits) {
+        this.yUnits = yUnits;
+    }
+
+    public Unit getzUnits() {
+        return zUnits;
+    }
+
+    public void setzUnits(Unit zUnits) {
+        this.zUnits = zUnits;
+    }
+
+    public Integer getMaxPts() {
+        return maxPts;
+    }
+
+    public void setMaxPts(Integer maxPts) {
+        this.maxPts = maxPts;
     }
 
     public String getxD() {
@@ -49,14 +106,6 @@ public class CSD extends DATA {
         this.xDU = xDU;
     }
 
-    public Unit getyUnits() {
-        return yUnits;
-    }
-
-    public void setyUnits(Unit yUnits) {
-        this.yUnits = yUnits;
-    }
-
     public String getyD() {
         return yD;
     }
@@ -73,14 +122,6 @@ public class CSD extends DATA {
         this.yDU = yDU;
     }
 
-    public Unit getzUnits() {
-        return zUnits;
-    }
-
-    public void setzUnits(Unit zUnits) {
-        this.zUnits = zUnits;
-    }
-
     public String getzD() {
         return zD;
     }
@@ -95,22 +136,6 @@ public class CSD extends DATA {
 
     public void setzDU(String zDU) {
         this.zDU = zDU;
-    }
-
-    public Integer getNumPts() {
-        return numPts;
-    }
-
-    public void setNumPts(Integer numPts) {
-        this.numPts = numPts;
-    }
-
-    public ArrayList<Point> getCrvPts() {
-        return crvPts;
-    }
-
-    public void setCrvPts(ArrayList<Point> crvPts) {
-        this.crvPts = crvPts;
     }
 
     public String getD() {

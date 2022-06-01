@@ -26,9 +26,10 @@ public class MV extends DATA {
     private AnalogueValue subMag = new AnalogueValue();
     private Quality subQ = new Quality();
     private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
-    private Unit unit = new Unit();
+    private Unit units = new Unit();
     private Integer db = 0;
     private Integer zeroDb = 0;
     private ScaledValueConfig sVC = new ScaledValueConfig();
@@ -112,12 +113,20 @@ public class MV extends DATA {
         this.subID = subID;
     }
 
-    public Unit getUnit() {
-        return unit;
+    public Boolean getBlkEna() {
+        return blkEna;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
+    }
+
+    public Unit getUnits() {
+        return units;
+    }
+
+    public void setUnits(Unit units) {
+        this.units = units;
     }
 
     public Integer getDb() {

@@ -15,18 +15,13 @@ import java.util.ArrayList;
 
 public class HMV extends DATA {
 
-// Основные измеряемые атрибуты
-    private Quality q = new Quality();
-    private TimeStamp t = new TimeStamp();
-
 // Гармоники и интергармоники
-    private ArrayList<Vector> har = new ArrayList<>();
+    private ArrayList<CMV> har = new ArrayList<>();
 
 // Конфигурация, описание и расширение
     private Integer numHar = 0;
     private Integer numCyc = 0;
     private Integer evalTm = 0;
-    private Unit unit = new Unit();
     private Integer smpRate = 0;
     private Float frequency = 0.0F;
     private String hvRef = "";
@@ -37,27 +32,11 @@ public class HMV extends DATA {
     private String cdcName = "";
     private String dataNs = "";
 
-    public Quality getQ() {
-        return q;
-    }
-
-    public void setQ(Quality q) {
-        this.q = q;
-    }
-
-    public TimeStamp getT() {
-        return t;
-    }
-
-    public void setT(TimeStamp t) {
-        this.t = t;
-    }
-
-    public ArrayList<Vector> getHar() {
+    public ArrayList<CMV> getHar() {
         return har;
     }
 
-    public void setHar(ArrayList<Vector> har) {
+    public void setHar(ArrayList<CMV> har) {
         this.har = har;
     }
 
@@ -83,14 +62,6 @@ public class HMV extends DATA {
 
     public void setEvalTm(Integer evalTm) {
         this.evalTm = evalTm;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
 
     public Integer getSmpRate() {

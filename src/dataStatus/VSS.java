@@ -1,56 +1,54 @@
-package dataValue;
+package dataStatus;
 
 import data.DATA;
+import data.TimeStamp;
+import dataAttribute.Cell;
+import dataAttribute.Unit;
+import dataAttribute.Quality;
+
+import java.util.ArrayList;
 
 /*
- * DEL (Delta)
- * Треугольник
+ * VSS (Visible string status)
+ * Видимый статус строки
  */
 
-public class DEL extends DATA {
+public class VSS extends DATA {
 
-    private CMV phsAB = new CMV();
-    private CMV phsBC = new CMV();
-    private CMV phsCA = new CMV();
+// Состояние
+    private String stVal = "";
+    private Quality q = new Quality();
+    private TimeStamp t = new TimeStamp();
 
 // Конфигурация, описание и расширение
-    private String angRef = "";
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
 
-    public CMV getPhsAB() {
-        return phsAB;
+    public String getStVal() {
+        return stVal;
     }
 
-    public void setPhsAB(CMV phsAB) {
-        this.phsAB = phsAB;
+    public void setStVal(String stVal) {
+        this.stVal = stVal;
     }
 
-    public CMV getPhsBC() {
-        return phsBC;
+    public Quality getQ() {
+        return q;
     }
 
-    public void setPhsBC(CMV phsBC) {
-        this.phsBC = phsBC;
+    public void setQ(Quality q) {
+        this.q = q;
     }
 
-    public CMV getPhsCA() {
-        return phsCA;
+    public TimeStamp getT() {
+        return t;
     }
 
-    public void setPhsCA(CMV phsCA) {
-        this.phsCA = phsCA;
-    }
-
-    public String getAngRef() {
-        return angRef;
-    }
-
-    public void setAngRef(String angRef) {
-        this.angRef = angRef;
+    public void setT(TimeStamp t) {
+        this.t = t;
     }
 
     public String getD() {

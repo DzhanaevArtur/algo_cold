@@ -20,7 +20,7 @@ public class BCR extends DATA {
     private TimeStamp t = new TimeStamp();
 
 // Конфигурация, описание и расширение
-    private Unit unit = new Unit();
+    private Unit units = new Unit();
     private Float puIsQty = 0.0F;
     private Boolean frEna = Boolean.FALSE;
     private TimeStamp strTm = new TimeStamp();
@@ -72,12 +72,12 @@ public class BCR extends DATA {
         this.t = t;
     }
 
-    public Unit getUnit() {
-        return unit;
+    public Unit getUnits() {
+        return units;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public void setUnit(Unit units) {
+        this.units = units;
     }
 
     public Float getPuIsQty() {

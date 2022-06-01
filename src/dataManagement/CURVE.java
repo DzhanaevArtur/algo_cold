@@ -3,8 +3,8 @@ package dataManagement;
 import data.DATA;
 
 /*
- * BSC (Binary controlled step position information)
- * Двоичное управление пошаговым механизмом и его состоянием
+ * CURVE (Setting curve)
+ * Настройка кривой
  */
 
 public class CURVE extends DATA {

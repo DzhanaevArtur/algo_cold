@@ -15,23 +15,18 @@ import java.util.ArrayList;
 
 public class HWYE extends DATA {
 
-// Основные измеряемые атрибуты
-    private Quality q = new Quality();
-    private TimeStamp t = new TimeStamp();
-
 // Гармоники и интергармоники
-    private ArrayList<Vector> phsAHar = new ArrayList<>();
-    private ArrayList<Vector> phsBHar = new ArrayList<>();
-    private ArrayList<Vector> phsCHar = new ArrayList<>();
-    private ArrayList<Vector> neutHar = new ArrayList<>();
-    private ArrayList<Vector> netHar = new ArrayList<>();
-    private ArrayList<Vector> resHar = new ArrayList<>();
+    private ArrayList<CMV> phsAHar = new ArrayList<>();
+    private ArrayList<CMV> phsBHar = new ArrayList<>();
+    private ArrayList<CMV> phsCHar = new ArrayList<>();
+    private ArrayList<CMV> neutHar = new ArrayList<>();
+    private ArrayList<CMV> netHar = new ArrayList<>();
+    private ArrayList<CMV> resHar = new ArrayList<>();
 
 // Конфигурация, описание и расширение
     private Integer numHar = 0;
     private Integer numCyc = 0;
     private Integer evalTm = 0;
-    private Unit unit = new Unit();
     private String angRef = "";
     private Integer smpRate = 0;
     private Float frequency = 0.0F;
@@ -43,67 +38,52 @@ public class HWYE extends DATA {
     private String cdcName = "";
     private String dataNs = "";
 
-    public Quality getQ() {
-        return q;
-    }
 
-    public void setQ(Quality q) {
-        this.q = q;
-    }
-
-    public TimeStamp getT() {
-        return t;
-    }
-
-    public void setT(TimeStamp t) {
-        this.t = t;
-    }
-
-    public ArrayList<Vector> getPhsAHar() {
+    public ArrayList<CMV> getPhsAHar() {
         return phsAHar;
     }
 
-    public void setPhsAHar(ArrayList<Vector> phsAHar) {
+    public void setPhsAHar(ArrayList<CMV> phsAHar) {
         this.phsAHar = phsAHar;
     }
 
-    public ArrayList<Vector> getPhsBHar() {
+    public ArrayList<CMV> getPhsBHar() {
         return phsBHar;
     }
 
-    public void setPhsBHar(ArrayList<Vector> phsBHar) {
+    public void setPhsBHar(ArrayList<CMV> phsBHar) {
         this.phsBHar = phsBHar;
     }
 
-    public ArrayList<Vector> getPhsCHar() {
+    public ArrayList<CMV> getPhsCHar() {
         return phsCHar;
     }
 
-    public void setPhsCHar(ArrayList<Vector> phsCHar) {
+    public void setPhsCHar(ArrayList<CMV> phsCHar) {
         this.phsCHar = phsCHar;
     }
 
-    public ArrayList<Vector> getNeutHar() {
+    public ArrayList<CMV> getNeutHar() {
         return neutHar;
     }
 
-    public void setNeutHar(ArrayList<Vector> neutHar) {
+    public void setNeutHar(ArrayList<CMV> neutHar) {
         this.neutHar = neutHar;
     }
 
-    public ArrayList<Vector> getNetHar() {
+    public ArrayList<CMV> getNetHar() {
         return netHar;
     }
 
-    public void setNetHar(ArrayList<Vector> netHar) {
+    public void setNetHar(ArrayList<CMV> netHar) {
         this.netHar = netHar;
     }
 
-    public ArrayList<Vector> getResHar() {
+    public ArrayList<CMV> getResHar() {
         return resHar;
     }
 
-    public void setResHar(ArrayList<Vector> resHar) {
+    public void setResHar(ArrayList<CMV> resHar) {
         this.resHar = resHar;
     }
 
@@ -129,14 +109,6 @@ public class HWYE extends DATA {
 
     public void setEvalTm(Integer evalTm) {
         this.evalTm = evalTm;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
 
     public String getAngRef() {

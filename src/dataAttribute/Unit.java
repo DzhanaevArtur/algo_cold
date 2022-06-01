@@ -2,15 +2,15 @@ package dataAttribute;
 
 public class Unit {
 
-    private String slUnit = "";
+    private String sIUnit = "";
     private String multiplier = "";
 
-    public String getSlUnit() {
-        return slUnit;
+    public String getsIUnit() {
+        return sIUnit;
     }
 
-    public void setSlUnit(String slUnit) {
-        this.slUnit = slUnit;
+    public void setsIUnit(String sIUnit) {
+        this.sIUnit = sIUnit;
     }
 
     public String getMultiplier() {

@@ -1,56 +1,30 @@
-package dataValue;
+package dataManagement;
 
 import data.DATA;
 
 /*
- * DEL (Delta)
- * Треугольник
+ * ENG (Enumerated status setting)
+ * Пронумерованная установка состояния
  */
 
-public class DEL extends DATA {
+public class ENG extends DATA {
 
-    private CMV phsAB = new CMV();
-    private CMV phsBC = new CMV();
-    private CMV phsCA = new CMV();
+// Установка состояния
+    private String  setVal = "";
 
 // Конфигурация, описание и расширение
-    private String angRef = "";
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
 
-    public CMV getPhsAB() {
-        return phsAB;
+    public String getSetVal() {
+        return setVal;
     }
 
-    public void setPhsAB(CMV phsAB) {
-        this.phsAB = phsAB;
-    }
-
-    public CMV getPhsBC() {
-        return phsBC;
-    }
-
-    public void setPhsBC(CMV phsBC) {
-        this.phsBC = phsBC;
-    }
-
-    public CMV getPhsCA() {
-        return phsCA;
-    }
-
-    public void setPhsCA(CMV phsCA) {
-        this.phsCA = phsCA;
-    }
-
-    public String getAngRef() {
-        return angRef;
-    }
-
-    public void setAngRef(String angRef) {
-        this.angRef = angRef;
+    public void setSetVal(String setVal) {
+        this.setVal = setVal;
     }
 
     public String getD() {

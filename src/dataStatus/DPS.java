@@ -21,6 +21,7 @@ public class DPS extends DATA {
     private String subVal = "";
     private Quality subQ = new Quality();
     private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
     private String d = "";
@@ -83,6 +84,14 @@ public class DPS extends DATA {
 
     public void setSubID(String subID) {
         this.subID = subID;
+    }
+
+    public Boolean getBlkEna() {
+        return blkEna;
+    }
+
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
     }
 
     public String getD() {

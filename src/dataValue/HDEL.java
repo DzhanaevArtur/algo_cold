@@ -15,20 +15,15 @@ import java.util.ArrayList;
 
 public class HDEL extends DATA {
 
-// Основные измеряемые атрибуты
-    private Quality q = new Quality();
-    private TimeStamp t = new TimeStamp();
-
 // Гармоники и интергармоники
-    private ArrayList<Vector> phsABHar = new ArrayList<>();
-    private ArrayList<Vector> phsBCHar = new ArrayList<>();
-    private ArrayList<Vector> phsCAHar = new ArrayList<>();
+    private ArrayList<CMV> phsABHar = new ArrayList<>();
+    private ArrayList<CMV> phsBCHar = new ArrayList<>();
+    private ArrayList<CMV> phsCAHar = new ArrayList<>();
 
 // Конфигурация, описание и расширение
     private Integer numHar = 0;
     private Integer numCyc = 0;
     private Integer evalTm = 0;
-    private Unit unit = new Unit();
     private String angRef = "";
     private Integer smpRate = 0;
     private Float frequency = 0.0F;
@@ -40,43 +35,28 @@ public class HDEL extends DATA {
     private String cdcName = "";
     private String dataNs = "";
 
-    public Quality getQ() {
-        return q;
-    }
 
-    public void setQ(Quality q) {
-        this.q = q;
-    }
-
-    public TimeStamp getT() {
-        return t;
-    }
-
-    public void setT(TimeStamp t) {
-        this.t = t;
-    }
-
-    public ArrayList<Vector> getPhsABHar() {
+    public ArrayList<CMV> getPhsABHar() {
         return phsABHar;
     }
 
-    public void setPhsABHar(ArrayList<Vector> phsABHar) {
+    public void setPhsABHar(ArrayList<CMV> phsABHar) {
         this.phsABHar = phsABHar;
     }
 
-    public ArrayList<Vector> getPhsBCHar() {
+    public ArrayList<CMV> getPhsBCHar() {
         return phsBCHar;
     }
 
-    public void setPhsBCHar(ArrayList<Vector> phsBCHar) {
+    public void setPhsBCHar(ArrayList<CMV> phsBCHar) {
         this.phsBCHar = phsBCHar;
     }
 
-    public ArrayList<Vector> getPhsCAHar() {
+    public ArrayList<CMV> getPhsCAHar() {
         return phsCAHar;
     }
 
-    public void setPhsCAHar(ArrayList<Vector> phsCAHar) {
+    public void setPhsCAHar(ArrayList<CMV> phsCAHar) {
         this.phsCAHar = phsCAHar;
     }
 
@@ -102,14 +82,6 @@ public class HDEL extends DATA {
 
     public void setEvalTm(Integer evalTm) {
         this.evalTm = evalTm;
-    }
-
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
     }
 
     public String getAngRef() {

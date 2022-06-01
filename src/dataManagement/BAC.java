@@ -2,23 +2,20 @@ package dataManagement;
 
 import data.DATA;
 import data.TimeStamp;
-import dataAttribute.CtIModels;
-import dataAttribute.Originator;
-import dataAttribute.SboClasses;
-import dataAttribute.ValWithTrans;
+import dataAttribute.*;
 import dataAttribute.Quality;
 
 /*
- * BSC (Binary controlled step position information)
- * Двоичное управление пошаговым механизмом и его состояни
+ * BAC (Binary controlled analog process value)
+ * Значение аналогового процесса с двоичным управлением
  */
 
-public class BSC extends DATA {
+public class BAC extends DATA {
 
 // Управление и состояние
     private Originator origin = new Originator();
     private Integer ctINum = 0;
-    private ValWithTrans valWTr = new ValWithTrans();
+    private AnalogueValue mxVal = new AnalogueValue();
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
     private Boolean stSeld = Boolean.FALSE;
@@ -28,7 +25,7 @@ public class BSC extends DATA {
 
 // Замещение
     private Boolean subEna = Boolean.FALSE;
-    private ValWithTrans subVal = new ValWithTrans();
+    private AnalogueValue subVal = new AnalogueValue();
     private Quality subQ = new Quality();
     private String subID = "";
     private Boolean blkEna = Boolean.FALSE;
@@ -38,8 +35,12 @@ public class BSC extends DATA {
     private CtIModels ctIModel = new CtIModels();
     private Integer sboTimeout = 0;
     private SboClasses sboClass = new SboClasses();
+    private Unit units = new Unit();
+    private Integer db = 0;
+    private ScaledValueConfig sVC = new ScaledValueConfig();
     private Integer minVal = 0;
     private Integer maxVal = 0;
+    private AnalogueValue stepSize = new AnalogueValue();
     private Integer operTimeout = 0;
     private String d = "";
     private String dU = "";
@@ -63,12 +64,12 @@ public class BSC extends DATA {
         this.ctINum = ctINum;
     }
 
-    public ValWithTrans getValWTr() {
-        return valWTr;
+    public AnalogueValue getMxVal() {
+        return mxVal;
     }
 
-    public void setValWTr(ValWithTrans valWTr) {
-        this.valWTr = valWTr;
+    public void setMxVal(AnalogueValue mxVal) {
+        this.mxVal = mxVal;
     }
 
     public Quality getQ() {
@@ -127,11 +128,11 @@ public class BSC extends DATA {
         this.subEna = subEna;
     }
 
-    public ValWithTrans getSubVal() {
+    public AnalogueValue getSubVal() {
         return subVal;
     }
 
-    public void setSubVal(ValWithTrans subVal) {
+    public void setSubVal(AnalogueValue subVal) {
         this.subVal = subVal;
     }
 
@@ -191,6 +192,30 @@ public class BSC extends DATA {
         this.sboClass = sboClass;
     }
 
+    public Unit getUnits() {
+        return units;
+    }
+
+    public void setUnits(Unit units) {
+        this.units = units;
+    }
+
+    public Integer getDb() {
+        return db;
+    }
+
+    public void setDb(Integer db) {
+        this.db = db;
+    }
+
+    public ScaledValueConfig getsVC() {
+        return sVC;
+    }
+
+    public void setsVC(ScaledValueConfig sVC) {
+        this.sVC = sVC;
+    }
+
     public Integer getMinVal() {
         return minVal;
     }
@@ -205,6 +230,14 @@ public class BSC extends DATA {
 
     public void setMaxVal(Integer maxVal) {
         this.maxVal = maxVal;
+    }
+
+    public AnalogueValue getStepSize() {
+        return stepSize;
+    }
+
+    public void setStepSize(AnalogueValue stepSize) {
+        this.stepSize = stepSize;
     }
 
     public Integer getOperTimeout() {

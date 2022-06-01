@@ -5,20 +5,19 @@ import data.TimeStamp;
 import dataAttribute.CtIModels;
 import dataAttribute.Originator;
 import dataAttribute.SboClasses;
-import dataAttribute.ValWithTrans;
 import dataAttribute.Quality;
 
 /*
- * BSC (Binary controlled step position information)
- * Двоичное управление пошаговым механизмом и его состояни
+ * ENC (Controllable enumerated status)
+ * Регулируемое пронумерованное состояние
  */
 
-public class BSC extends DATA {
+public class ENC extends DATA {
 
 // Управление и состояние
     private Originator origin = new Originator();
     private Integer ctINum = 0;
-    private ValWithTrans valWTr = new ValWithTrans();
+    private String stVal = "";
     private Quality q = new Quality();
     private TimeStamp t = new TimeStamp();
     private Boolean stSeld = Boolean.FALSE;
@@ -28,18 +27,15 @@ public class BSC extends DATA {
 
 // Замещение
     private Boolean subEna = Boolean.FALSE;
-    private ValWithTrans subVal = new ValWithTrans();
+    private Integer subVal = 0;
     private Quality subQ = new Quality();
     private String subID = "";
     private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
-    private Boolean persistent = Boolean.FALSE;
     private CtIModels ctIModel = new CtIModels();
     private Integer sboTimeout = 0;
     private SboClasses sboClass = new SboClasses();
-    private Integer minVal = 0;
-    private Integer maxVal = 0;
     private Integer operTimeout = 0;
     private String d = "";
     private String dU = "";
@@ -63,12 +59,12 @@ public class BSC extends DATA {
         this.ctINum = ctINum;
     }
 
-    public ValWithTrans getValWTr() {
-        return valWTr;
+    public String getStVal() {
+        return stVal;
     }
 
-    public void setValWTr(ValWithTrans valWTr) {
-        this.valWTr = valWTr;
+    public void setStVal(String stVal) {
+        this.stVal = stVal;
     }
 
     public Quality getQ() {
@@ -127,11 +123,11 @@ public class BSC extends DATA {
         this.subEna = subEna;
     }
 
-    public ValWithTrans getSubVal() {
+    public Integer getSubVal() {
         return subVal;
     }
 
-    public void setSubVal(ValWithTrans subVal) {
+    public void setSubVal(Integer subVal) {
         this.subVal = subVal;
     }
 
@@ -159,14 +155,6 @@ public class BSC extends DATA {
         this.blkEna = blkEna;
     }
 
-    public Boolean getPersistent() {
-        return persistent;
-    }
-
-    public void setPersistent(Boolean persistent) {
-        this.persistent = persistent;
-    }
-
     public CtIModels getCtIModel() {
         return ctIModel;
     }
@@ -189,22 +177,6 @@ public class BSC extends DATA {
 
     public void setSboClass(SboClasses sboClass) {
         this.sboClass = sboClass;
-    }
-
-    public Integer getMinVal() {
-        return minVal;
-    }
-
-    public void setMinVal(Integer minVal) {
-        this.minVal = minVal;
-    }
-
-    public Integer getMaxVal() {
-        return maxVal;
-    }
-
-    public void setMaxVal(Integer maxVal) {
-        this.maxVal = maxVal;
     }
 
     public Integer getOperTimeout() {

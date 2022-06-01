@@ -3,10 +3,11 @@ package dataStatus;
 import data.DATA;
 import data.TimeStamp;
 import dataAttribute.Quality;
+import dataAttribute.Unit;
 
 /*
  * INS (Integer status)
- * Целочисленное состояни
+ * Целочисленное состояние
  */
 
 public class INS extends DATA {
@@ -21,8 +22,10 @@ public class INS extends DATA {
     private Integer subVal = 0;
     private Quality subQ = new Quality();
     private String subID = "";
+    private Boolean blkEna = Boolean.FALSE;
 
 // Конфигурация, описание и расширение
+    private Unit units = new Unit();
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
@@ -83,6 +86,22 @@ public class INS extends DATA {
 
     public void setSubID(String subID) {
         this.subID = subID;
+    }
+
+    public Boolean getBlkEna() {
+        return blkEna;
+    }
+
+    public void setBlkEna(Boolean blkEna) {
+        this.blkEna = blkEna;
+    }
+
+    public Unit getUnits() {
+        return units;
+    }
+
+    public void setUnits(Unit units) {
+        this.units = units;
     }
 
     public String getD() {

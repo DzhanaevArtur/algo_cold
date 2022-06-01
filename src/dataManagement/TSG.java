@@ -1,56 +1,42 @@
-package dataValue;
+package dataManagement;
 
 import data.DATA;
+import data.ObjectReference;
+import data.TimeStamp;
+import dataAttribute.CalendarTime;
 
 /*
- * DEL (Delta)
- * Треугольник
+ * TSG (Time setting group)
+ * Группа настройки времени
  */
 
-public class DEL extends DATA {
+public class TSG extends DATA {
 
-    private CMV phsAB = new CMV();
-    private CMV phsBC = new CMV();
-    private CMV phsCA = new CMV();
+// Установка состояния
+    private TimeStamp setTm = new TimeStamp();
+    private CalendarTime setCal = new CalendarTime();
 
 // Конфигурация, описание и расширение
-    private String angRef = "";
     private String d = "";
     private String dU = "";
     private String cdcNs = "";
     private String cdcName = "";
     private String dataNs = "";
 
-    public CMV getPhsAB() {
-        return phsAB;
+    public TimeStamp getSetTm() {
+        return setTm;
     }
 
-    public void setPhsAB(CMV phsAB) {
-        this.phsAB = phsAB;
+    public void setSetTm(TimeStamp setTm) {
+        this.setTm = setTm;
     }
 
-    public CMV getPhsBC() {
-        return phsBC;
+    public CalendarTime getSetCal() {
+        return setCal;
     }
 
-    public void setPhsBC(CMV phsBC) {
-        this.phsBC = phsBC;
-    }
-
-    public CMV getPhsCA() {
-        return phsCA;
-    }
-
-    public void setPhsCA(CMV phsCA) {
-        this.phsCA = phsCA;
-    }
-
-    public String getAngRef() {
-        return angRef;
-    }
-
-    public void setAngRef(String angRef) {
-        this.angRef = angRef;
+    public void setSetCal(CalendarTime setCal) {
+        this.setCal = setCal;
     }
 
     public String getD() {
