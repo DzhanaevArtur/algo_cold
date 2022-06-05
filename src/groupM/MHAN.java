@@ -334,4 +334,9 @@ public class MHAN extends LN {
     public void setNomA(ASG nomA) {
         this.nomA = nomA;
     }
+
+    @Override
+    public void process() {
+        
+    }
 }

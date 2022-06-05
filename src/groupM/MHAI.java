@@ -388,4 +388,9 @@ public class MHAI extends LN {
     public void setNomA(ASG nomA) {
         this.nomA = nomA;
     }
+
+    @Override
+    public void process() {
+
+    }
 }

@@ -150,4 +150,9 @@ public class MSQI extends LN {
     public void setMaxImbV(MV maxImbV) {
         this.maxImbV = maxImbV;
     }
+
+    @Override
+    public void process() {
+
+    }
 }

@@ -1,4 +1,6 @@
 package logical;
 
-public class LN {
+public abstract class LN {
+
+    public abstract void process();
 }

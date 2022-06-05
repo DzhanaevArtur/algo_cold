@@ -1,4 +1,82 @@
 package groupP;
 
-public class PZSU {
+import control.INC;
+import dataDescription.CSD;
+import dataManagement.*;
+import dataStatus.ACD;
+import dataStatus.ACT;
+import dataValue.WYE;
+import logical.LN;
+
+/*
+ * PZSU (Zero speed or underspeed)
+ * Нулевая скорость или недостаточная скорость.
+ */
+
+public class PZSU extends LN {
+
+    // Информация о статусе
+    private ACD str = new ACD(); //  Пуск
+    private ACT op = new ACT(); //  Срабатывание
+
+    // Управление
+    private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
+
+    // Параметры настройки
+    private ASG strVal = new ASG(); //  Начальное значение
+    private ING opDlTmms = new ING(); //  Время задержки срабатывания
+    private ING rsDlTmms = new ING(); //  Время задержки сброса
+
+    public ACD getStr() {
+        return str;
+    }
+
+    public void setStr(ACD str) {
+        this.str = str;
+    }
+
+    public ACT getOp() {
+        return op;
+    }
+
+    public void setOp(ACT op) {
+        this.op = op;
+    }
+
+    public INC getOpCntRs() {
+        return opCntRs;
+    }
+
+    public void setOpCntRs(INC opCntRs) {
+        this.opCntRs = opCntRs;
+    }
+
+    public ASG getStrVal() {
+        return strVal;
+    }
+
+    public void setStrVal(ASG strVal) {
+        this.strVal = strVal;
+    }
+
+    public ING getOpDlTmms() {
+        return opDlTmms;
+    }
+
+    public void setOpDlTmms(ING opDlTmms) {
+        this.opDlTmms = opDlTmms;
+    }
+
+    public ING getRsDlTmms() {
+        return rsDlTmms;
+    }
+
+    public void setRsDlTmms(ING rsDlTmms) {
+        this.rsDlTmms = rsDlTmms;
+    }
+
+    @Override
+    public void process() {
+
+    }
 }

@@ -96,4 +96,9 @@ public class MMTR extends LN {
     public void setDmdVArh(BCR dmdVArh) {
         this.dmdVArh = dmdVArh;
     }
+
+    @Override
+    public void process() {
+
+    }
 }

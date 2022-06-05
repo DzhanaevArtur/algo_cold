@@ -192,4 +192,9 @@ public class MSTA extends LN {
     public void setEvTmms(ASG evTmms) {
         this.evTmms = evTmms;
     }
+
+    @Override
+    public void process() {
+
+    }
 }

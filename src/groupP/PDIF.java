@@ -3,6 +3,7 @@ package groupP;
 import control.INC;
 import dataDescription.CSD;
 import dataManagement.ASG;
+import dataManagement.CSG;
 import dataManagement.CURVE;
 import dataManagement.ING;
 import dataStatus.ACD;
@@ -11,25 +12,25 @@ import dataValue.WYE;
 import logical.LN;
 
 /*
- * PDIF (Differential Protection)
- * Дифференциальная защита
+ * PDIF (Differential)
+ * Дифференциальная.
  */
 
 public class PDIF extends LN {
 
-// Информация об общих логических узлах
-    private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
-
-// Информация о статусе
+    // Информация о статусе
     private ACD str = new ACD(); //  Пуск
     private ACT op = new ACT(); //  Срабатывание
     private CSD tmASt = new CSD(); //  Динамические характеристики кривой
 
-// Измеренные значения
+    // Измеренные значения
     private WYE difACIc = new WYE(); //  Дифференциальный ток
     private WYE rstA = new WYE(); //  Ограничение по току
 
-// Параметры настройки
+    // Управление
+    private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
+
+    // Параметры настройки
     private ASG linCapac = new ASG(); //  Емкость линии (для токов нагрузки)
     private ING loSet = new ING(); //  Нижний порог срабатывания, процент номинального тока
     private ING hiSet = new ING(); //  Верхний порог срабатывания, процент номинального тока
@@ -38,6 +39,7 @@ public class PDIF extends LN {
     private ING rstMod = new ING(); //  Режим ограничения
     private ING rsDITmms = new ING(); //  Время задержки сброса
     private CURVE tmACrv = new CURVE(); //  Тип графика рабочих характеристик
+    private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
 
     public INC getOpCntRs() {
         return opCntRs;
@@ -149,5 +151,18 @@ public class PDIF extends LN {
 
     public void setTmACrv(CURVE tmACrv) {
         this.tmACrv = tmACrv;
+    }
+
+    public CSG getTmAChr33() {
+        return tmAChr33;
+    }
+
+    public void setTmAChr33(CSG tmAChr33) {
+        this.tmAChr33 = tmAChr33;
+    }
+
+    @Override
+    public void process() {
+
     }
 }

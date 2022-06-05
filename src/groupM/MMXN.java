@@ -106,4 +106,9 @@ public class MMXN extends LN {
     public void setHz(MV hz) {
         this.hz = hz;
     }
+
+    @Override
+    public void process() {
+
+    }
 }
