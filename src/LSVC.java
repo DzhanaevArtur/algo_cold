@@ -1,6 +1,5 @@
 import dataValue.SAV;
 import logical.LN;
-import dataValue.Attribute;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,17 +11,11 @@ import java.util.List;
 
 public class LSVC extends LN {
 
-    private List<SAV> signals = new ArrayList<>();
+    private final List<SAV> signals = new ArrayList<>();
 
-    /** Считанный файл CFG */
-    private List<String> cfgFileLines = new ArrayList<>();
+    private final List<Float> aBuffer = new ArrayList<>();
 
-    /** Считанный файл DAT */
-    private List<String> datFileLines = new ArrayList<>();
-
-    private List<Float> aBuffer = new ArrayList<>();
-
-    private List<Float> bBuffer = new ArrayList<>();
+    private final List<Float> bBuffer = new ArrayList<>();
 
     private Iterator<String> iterator;
 
@@ -33,16 +26,13 @@ public class LSVC extends LN {
 
     /** Загрузить Comtrade файл (.cfg) */
     public void readComtrade(String cfgPath){
-        cfgFileLines = readFile(cfgPath + ".cfg");
-        datFileLines = readFile(cfgPath + ".dat");
+        List<String> cfgFileLines = readFile(cfgPath + ".cfg");
+        List<String> datFileLines = readFile(cfgPath + ".dat");
 
         iterator = datFileLines.iterator();
 
         /* Извлечение числа сигналов */
-        int analogNumber = Integer.parseInt(cfgFileLines
-                .get(1)
-                .split(",")[1]
-                .replace("A", ""));
+        int analogNumber = Integer.parseInt(cfgFileLines.get(1).split(",")[1].replace("A", ""));
         int discreteNumber = Integer.parseInt(cfgFileLines.get(1).split(",")[2].replace("D", ""));
         signalNumber = analogNumber + discreteNumber;
 
