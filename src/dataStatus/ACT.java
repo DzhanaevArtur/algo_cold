@@ -2,8 +2,8 @@ package dataStatus;
 
 import data.DATA;
 import data.TimeStamp;
-import dataAttribute.Originator;
 import dataAttribute.Quality;
+import dataValue.Attribute;
 
 /*
  * ACT (Protection activation information)
@@ -12,160 +12,44 @@ import dataAttribute.Quality;
 
 public class ACT extends DATA {
 
-// Состояние
-    private Boolean general = Boolean.FALSE;
-    private Boolean phsA = Boolean.FALSE;
-    private Boolean phsB = Boolean.FALSE;
-    private Boolean phsC = Boolean.FALSE;
-    private Boolean neut = Boolean.FALSE;
+    private Attribute<Boolean> general = new Attribute<>(false);
+    private Attribute<Boolean> phsA = new Attribute<>(false);
+    private Attribute<Boolean> phsB = new Attribute<>(false);
+    private Attribute<Boolean> phsC = new Attribute<>(false);
+
     private Quality q = new Quality();
+
     private TimeStamp t = new TimeStamp();
-    private Originator originSrc = new Originator();
-    private TimeStamp operTmPhsA = new TimeStamp();
-    private TimeStamp operTmPhsB = new TimeStamp();
-    private TimeStamp operTmPhsC = new TimeStamp();
 
-// Конфигурация, описание и расширение
-    private TimeStamp operTm = new TimeStamp();
-    private String d = "";
-    private String dU = "";
-    private String cdcNs = "";
-    private String cdcName = "";
-    private String dataNs = "";
-
-    public Boolean getGeneral() {
+    public Attribute<Boolean> getGeneral() {
         return general;
     }
 
-    public void setGeneral(Boolean general) {
+    public void setGeneral(Attribute<Boolean> general) {
         this.general = general;
     }
 
-    public Boolean getPhsA() {
+    public Attribute<Boolean> getPhsA() {
         return phsA;
     }
 
-    public void setPhsA(Boolean phsA) {
+    public void setPhsA(Attribute<Boolean> phsA) {
         this.phsA = phsA;
     }
 
-    public Boolean getPhsB() {
+    public Attribute<Boolean> getPhsB() {
         return phsB;
     }
 
-    public void setPhsB(Boolean phsB) {
+    public void setPhsB(Attribute<Boolean> phsB) {
         this.phsB = phsB;
     }
 
-    public Boolean getPhsC() {
+    public Attribute<Boolean> getPhsC() {
         return phsC;
     }
 
-    public void setPhsC(Boolean phsC) {
+    public void setPhsC(Attribute<Boolean> phsC) {
         this.phsC = phsC;
-    }
-
-    public Boolean getNeut() {
-        return neut;
-    }
-
-    public void setNeut(Boolean neut) {
-        this.neut = neut;
-    }
-
-    public Quality getQ() {
-        return q;
-    }
-
-    public void setQ(Quality q) {
-        this.q = q;
-    }
-
-    public TimeStamp getT() {
-        return t;
-    }
-
-    public void setT(TimeStamp t) {
-        this.t = t;
-    }
-
-    public Originator getOriginSrc() {
-        return originSrc;
-    }
-
-    public void setOriginSrc(Originator originSrc) {
-        this.originSrc = originSrc;
-    }
-
-    public TimeStamp getOperTmPhsA() {
-        return operTmPhsA;
-    }
-
-    public void setOperTmPhsA(TimeStamp operTmPhsA) {
-        this.operTmPhsA = operTmPhsA;
-    }
-
-    public TimeStamp getOperTmPhsB() {
-        return operTmPhsB;
-    }
-
-    public void setOperTmPhsB(TimeStamp operTmPhsB) {
-        this.operTmPhsB = operTmPhsB;
-    }
-
-    public TimeStamp getOperTmPhsC() {
-        return operTmPhsC;
-    }
-
-    public void setOperTmPhsC(TimeStamp operTmPhsC) {
-        this.operTmPhsC = operTmPhsC;
-    }
-
-    public TimeStamp getOperTm() {
-        return operTm;
-    }
-
-    public void setOperTm(TimeStamp operTm) {
-        this.operTm = operTm;
-    }
-
-    public String getD() {
-        return d;
-    }
-
-    public void setD(String d) {
-        this.d = d;
-    }
-
-    public String getdU() {
-        return dU;
-    }
-
-    public void setdU(String dU) {
-        this.dU = dU;
-    }
-
-    public String getCdcNs() {
-        return cdcNs;
-    }
-
-    public void setCdcNs(String cdcNs) {
-        this.cdcNs = cdcNs;
-    }
-
-    public String getCdcName() {
-        return cdcName;
-    }
-
-    public void setCdcName(String cdcName) {
-        this.cdcName = cdcName;
-    }
-
-    public String getDataNs() {
-        return dataNs;
-    }
-
-    public void setDataNs(String dataNs) {
-        this.dataNs = dataNs;
     }
 }

@@ -15,6 +15,8 @@ import logical.LN;
 
 public class PTOC extends LN {
 
+    private WYE a = new WYE();
+
     // Информация о статусе
     private ACD str = new ACD(); //  Пуск
     private ACT op = new ACT(); //  Срабатывание
@@ -26,7 +28,7 @@ public class PTOC extends LN {
     private CURVE tmACrv = new CURVE(); //  Тип рабочей кривой
     private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
     private CSD tmASt = new CSD(); //  Характеристика активной кривой
-    private ASG strVal = new ASG(); //  Начальное значение
+    private Float strVal = 0.0f; //  Начальное значение
     private ASG tmMult = new ASG(); //  Множитель набора времени
     private ING minOpTmms = new ING(); //  Минимальное время работы
     private ING maxOpTmms = new ING(); //  Максимальное время работы
@@ -83,11 +85,11 @@ public class PTOC extends LN {
         this.tmASt = tmASt;
     }
 
-    public ASG getStrVal() {
+    public Float getStrVal() {
         return strVal;
     }
 
-    public void setStrVal(ASG strVal) {
+    public void setStrVal(float strVal) {
         this.strVal = strVal;
     }
 
@@ -145,6 +147,14 @@ public class PTOC extends LN {
 
     public void setDirMod(ENG dirMod) {
         this.dirMod = dirMod;
+    }
+
+    public WYE getA() {
+        return a;
+    }
+
+    public void setA(WYE a) {
+        this.a = a;
     }
 
     @Override

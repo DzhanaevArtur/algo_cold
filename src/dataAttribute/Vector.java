@@ -2,22 +2,63 @@ package dataAttribute;
 
 public class Vector {
 
-    private AnalogueValue mag = new AnalogueValue();
-    private AnalogueValue ang = new AnalogueValue();
+    private AnalogueValue mag = new AnalogueValue(); //Значение модуля комплексного значения
+    private AnalogueValue ang = new AnalogueValue(); //Значение угла
+    // Ортогональные состовляющие
+    private AnalogueValue vectorX = new AnalogueValue();
+    private AnalogueValue vectorY = new AnalogueValue();
+
+    public void setByOrt(float X, float Y) {
+        getVectorX().getF().setValue(X);
+        getVectorY().getF().setValue(Y);
+        mag.getF().setValue((float) Math.sqrt(X * X + Y * Y));
+        ang.getF().setValue((float) Math.toDegrees(Math.atan2(Y, X)));
+    }
+
+    public void setByMagAndAngle(float Mag, float Angle) {
+        mag.getF().setValue(Mag);
+        ang.getF().setValue(Angle);
+        vectorX.getF().setValue((float) (mag.getF().getValue() * Math.cos(Math.toRadians(ang.getF().getValue()))));
+        vectorY.getF().setValue((float) (mag.getF().getValue() * Math.sin(Math.toRadians(ang.getF().getValue()))));
+    }
+
+    public AnalogueValue getVectorX() {
+        return vectorX;
+    }
+
+    public void setVectorX(AnalogueValue vectorX) {
+        this.vectorX = vectorX;
+    }
+
+    public AnalogueValue getVectorY() {
+        return vectorY;
+    }
+
+    public void setVectorY(AnalogueValue vectorY) {
+        this.vectorY = vectorY;
+    }
 
     public AnalogueValue getMag() {
         return mag;
     }
 
-    public void setMag(AnalogueValue mag) {
-        this.mag = mag;
+    public void setMag(float magnitude) {
+        mag.getF().setValue(magnitude);
+        reOrt();
     }
 
     public AnalogueValue getAng() {
         return ang;
     }
 
-    public void setAng(AnalogueValue ang) {
-        this.ang = ang;
+    public void setAng(float ang) {
+        this.ang.getF().setValue(ang);
+        reOrt();
     }
+
+    private void reOrt() {
+        vectorX.getF().setValue((float) (mag.getF().getValue() * Math.cos(Math.toRadians(ang.getF().getValue()))));
+        vectorY.getF().setValue((float) (mag.getF().getValue() * Math.sin(Math.toRadians(ang.getF().getValue()))));
+    }
+
 }

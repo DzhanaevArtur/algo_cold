@@ -2,131 +2,106 @@ package groupC;
 
 import dataManagement.*;
 import dataStatus.ACT;
-import dataStatus.SPS;
 import logical.LN;
 
-/*
- * CSWI (Switch controller)
- * Контроллер переключателя.
+/**
+ * Узел управления выключателем
+ *
+ * @see DPC - дублированное состояние, сигнал проверяемый узлом выключателя и управления выключателем
+ * @see ACT - сигнал срабатывания защиты
  */
-
 public class CSWI extends LN {
 
-    // Информация о статусе
-    private SPS locKey = new SPS(); //  Локальный или удаленный ключ
-    private SPS loc = new SPS(); //  Поведение локального управления
-    private ACT opOpn = new ACT(); //  Операция “Разомкнуть выключатель”
-    private SPS selOpn = new SPS(); //  Выбор “Разомкнутый выключатель”
-    private ACT opCls = new ACT(); //  Операция “Закрыть выключатель”
-    private SPS selCls = new SPS(); //  Выбор “Закрыть переключатель”
+    private DPC ctVal = new DPC();
+    private DPC stVal = new DPC();
+    private ACT opOpn1 = new ACT();
+    private ACT opOpn2 = new ACT();
+    private ACT opOpn3 = new ACT();
+    private ACT opOpn4 = new ACT();
+    private ACT opOpn5 = new ACT();
+    private ACT opOpn6 = new ACT();
 
-    // Управление
-    private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
-    private SPC locSta = new SPC(); //  Полномочия по переключению на уровне станции
-    private DPC pos = new DPC(); //  Переключатель, общий
-    private DPC posA = new DPC(); //  Переключатель L1
-    private DPC posB = new DPC(); //  Переключатель L2
-    private DPC posC = new DPC(); //  Переключатель L3
 
-    public SPS getLocKey() {
-        return locKey;
+    public DPC getCtVal() {
+        return ctVal;
     }
 
-    public void setLocKey(SPS locKey) {
-        this.locKey = locKey;
+    public void setCtVal(DPC ctVal) {
+        this.ctVal = ctVal;
     }
 
-    public SPS getLoc() {
-        return loc;
+    public DPC getStVal() {
+        return stVal;
     }
 
-    public void setLoc(SPS loc) {
-        this.loc = loc;
+    public void setStVal(DPC stVal) {
+        this.stVal = stVal;
     }
 
-    public ACT getOpOpn() {
-        return opOpn;
+    public ACT getOpOpn1() {
+        return opOpn1;
     }
 
-    public void setOpOpn(ACT opOpn) {
-        this.opOpn = opOpn;
+    public void setOpOpn1(ACT opOpn1) {
+        this.opOpn1 = opOpn1;
     }
 
-    public SPS getSelOpn() {
-        return selOpn;
+    public ACT getOpOpn2() {
+        return opOpn2;
     }
 
-    public void setSelOpn(SPS selOpn) {
-        this.selOpn = selOpn;
+    public void setOpOpn2(ACT opOpn2) {
+        this.opOpn2 = opOpn2;
     }
 
-    public ACT getOpCls() {
-        return opCls;
+    public ACT getOpOpn3() {
+        return opOpn3;
     }
 
-    public void setOpCls(ACT opCls) {
-        this.opCls = opCls;
+    public void setOpOpn3(ACT opOpn3) {
+        this.opOpn3 = opOpn3;
     }
 
-    public SPS getSelCls() {
-        return selCls;
+    public ACT getOpOpn4() {
+        return opOpn4;
     }
 
-    public void setSelCls(SPS selCls) {
-        this.selCls = selCls;
+    public void setOpOpn4(ACT opOpn4) {
+        this.opOpn4 = opOpn4;
     }
 
-    public INC getOpCntRs() {
-        return opCntRs;
+    public ACT getOpOpn5() {
+        return opOpn5;
     }
 
-    public void setOpCntRs(INC opCntRs) {
-        this.opCntRs = opCntRs;
+    public void setOpOpn5(ACT opOpn5) {
+        this.opOpn5 = opOpn5;
     }
 
-    public SPC getLocSta() {
-        return locSta;
+    public ACT getOpOpn6() {
+        return opOpn6;
     }
 
-    public void setLocSta(SPC locSta) {
-        this.locSta = locSta;
-    }
-
-    public DPC getPos() {
-        return pos;
-    }
-
-    public void setPos(DPC pos) {
-        this.pos = pos;
-    }
-
-    public DPC getPosA() {
-        return posA;
-    }
-
-    public void setPosA(DPC posA) {
-        this.posA = posA;
-    }
-
-    public DPC getPosB() {
-        return posB;
-    }
-
-    public void setPosB(DPC posB) {
-        this.posB = posB;
-    }
-
-    public DPC getPosC() {
-        return posC;
-    }
-
-    public void setPosC(DPC posC) {
-        this.posC = posC;
+    public void setOpOpn6(ACT opOpn6) {
+        this.opOpn6 = opOpn6;
     }
 
     @Override
     public void process() {
 
+        if (opOpn1.getGeneral().getValue() ||
+                opOpn2.getGeneral().getValue() ||
+                opOpn3.getGeneral().getValue() ||
+                opOpn4.getGeneral().getValue() ||
+                opOpn5.getGeneral().getValue() ||
+                opOpn6.getGeneral().getValue()) {
+            if (!stVal.getStVal().getValue()) {
+                ctVal.getStVal().setValue(true);
+            } else {
+                ctVal.getStVal().setValue(false);
+            }
+        }
+
+
     }
 }
-
