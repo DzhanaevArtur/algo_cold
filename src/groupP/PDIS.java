@@ -1,11 +1,12 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
+import dataManagement.ASG;
+import dataManagement.ENG;
+import dataManagement.ING;
+import dataManagement.SPG;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -23,28 +24,28 @@ public class PDIS extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ASG poRch = new ASG(); //  Полярный охват - это диаметр диаграммы Mho
-    private ASG phStr = new ASG(); //  Начальное значение фазы
-    private ASG gndStr = new ASG(); //  Начальное значение заземления
+    private ASG poRch = new ASG(0.0F); //  Полярный охват - это диаметр диаграммы Mho
+    private ASG phStr = new ASG(0.0F); //  Начальное значение фазы
+    private ASG gndStr = new ASG(0.0F); //  Начальное значение заземления
     private ENG dirMod = new ENG(); //  Направленный режим
-    private ASG pctRch = new ASG(); //  Процентный охват
-    private ASG ofs = new ASG(); //  Смещение
-    private ASG PctOfs = new ASG(); //  Процентное смещение
-    private ASG risLod = new ASG(); //  Резистивный охват для зоны нагрузки
-    private ASG angLod = new ASG(); //  Угол для зоны нагрузки
+    private ASG pctRch = new ASG(0.0F); //  Процентный охват
+    private ASG ofs = new ASG(0.0F); //  Смещение
+    private ASG PctOfs = new ASG(0.0F); //  Процентное смещение
+    private ASG risLod = new ASG(0.0F); //  Резистивный охват для зоны нагрузки
+    private ASG angLod = new ASG(0.0F); //  Угол для зоны нагрузки
     private SPG tmDlMod = new SPG(); //  Режим временной задержки работы
-    private ING opDlTmms = new ING(); //  Задержка по времени срабатывания
+    private ING opDlTmms = new ING(0); //  Задержка по времени срабатывания
     private SPG phDlMod = new SPG(); //  Работать в многофазном режиме с временной задержкой
-    private ING phDlTmms = new ING(); //  Задержка срабатывания при многофазных неисправностях
+    private ING phDlTmms = new ING(0); //  Задержка срабатывания при многофазных неисправностях
     private SPG gndDlMod = new SPG(); //  Задержка срабатывания для однофазного режима заземления
-    private ING gndDlTmms = new ING(); //  Задержка срабатывания при однофазных замыканиях на землю
-    private ASG x1 = new ASG(); //  Реактивное сопротивление линии положительной последовательности (reach)
-    private ASG linAng = new ASG(); //  Угол наклона линии
-    private ASG risGndRch = new ASG(); //  Резистивный охват заземления
-    private ASG risPhRch = new ASG(); //  Резистивный фазовый охват
-    private ASG k0Fact = new ASG(); //  Коэффициент остаточной компенсации K0
-    private ASG k0FactAng = new ASG(); //  Угол коэффициента остаточной компенсации
-    private ING rsDlTmms = new ING(); //  Задержка по времени сброса
+    private ING gndDlTmms = new ING(0); //  Задержка срабатывания при однофазных замыканиях на землю
+    private ASG x1 = new ASG(0.0F); //  Реактивное сопротивление линии положительной последовательности (reach)
+    private ASG linAng = new ASG(0.0F); //  Угол наклона линии
+    private ASG risGndRch = new ASG(0.0F); //  Резистивный охват заземления
+    private ASG risPhRch = new ASG(0.0F); //  Резистивный фазовый охват
+    private ASG k0Fact = new ASG(0.0F); //  Коэффициент остаточной компенсации K0
+    private ASG k0FactAng = new ASG(0.0F); //  Угол коэффициента остаточной компенсации
+    private ING rsDlTmms = new ING(0); //  Задержка по времени сброса
 
     public ACD getStr() {
         return str;

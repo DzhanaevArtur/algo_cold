@@ -13,17 +13,6 @@ public class SEQ extends DATA {
     private CMV c2 = new CMV();
     private CMV c3 = new CMV();
 
-// Измеряемые атрибуты
-    private String seqT = "";
-
-// Конфигурация, описание и расширение
-    private String phsRef = "";
-    private String d = "";
-    private String dU = "";
-    private String cdcNs = "";
-    private String cdcName = "";
-    private String dataNs = "";
-
     public CMV getC1() {
         return c1;
     }
@@ -46,61 +35,5 @@ public class SEQ extends DATA {
 
     public void setC3(CMV c3) {
         this.c3 = c3;
-    }
-
-    public String getSeqT() {
-        return seqT;
-    }
-
-    public void setSeqT(String seqT) {
-        this.seqT = seqT;
-    }
-
-    public String getPhsRef() {
-        return phsRef;
-    }
-
-    public void setPhsRef(String phsRef) {
-        this.phsRef = phsRef;
-    }
-
-    public String getD() {
-        return d;
-    }
-
-    public void setD(String d) {
-        this.d = d;
-    }
-
-    public String getdU() {
-        return dU;
-    }
-
-    public void setdU(String dU) {
-        this.dU = dU;
-    }
-
-    public String getCdcNs() {
-        return cdcNs;
-    }
-
-    public void setCdcNs(String cdcNs) {
-        this.cdcNs = cdcNs;
-    }
-
-    public String getCdcName() {
-        return cdcName;
-    }
-
-    public void setCdcName(String cdcName) {
-        this.cdcName = cdcName;
-    }
-
-    public String getDataNs() {
-        return dataNs;
-    }
-
-    public void setDataNs(String dataNs) {
-        this.dataNs = dataNs;
     }
 }

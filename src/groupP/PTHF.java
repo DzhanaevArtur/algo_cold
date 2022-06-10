@@ -1,14 +1,9 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
-import dataManagement.ING;
-import dataManagement.SPC;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -26,7 +21,7 @@ public class PTHF extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ASG strVal = new ASG(); //  Начальное значение
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
 
     public ACD getStr() {
         return str;

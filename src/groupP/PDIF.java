@@ -31,13 +31,13 @@ public class PDIF extends LN {
     private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
 
     // Параметры настройки
-    private ASG linCapac = new ASG(); //  Емкость линии (для токов нагрузки)
-    private ING loSet = new ING(); //  Нижний порог срабатывания, процент номинального тока
-    private ING hiSet = new ING(); //  Верхний порог срабатывания, процент номинального тока
-    private ING minOpTmms = new ING(); //  Минимальное время срабатывания
-    private ING maxOpTmms = new ING(); //  Максимальное время срабатывания
-    private ING rstMod = new ING(); //  Режим ограничения
-    private ING rsDITmms = new ING(); //  Время задержки сброса
+    private ASG linCapac = new ASG(0.0F); //  Емкость линии (для токов нагрузки)
+    private ING loSet = new ING(0); //  Нижний порог срабатывания, процент номинального тока
+    private ING hiSet = new ING(0); //  Верхний порог срабатывания, процент номинального тока
+    private ING minOpTmms = new ING(0); //  Минимальное время срабатывания
+    private ING maxOpTmms = new ING(0); //  Максимальное время срабатывания
+    private ING rstMod = new ING(0); //  Режим ограничения
+    private ING rsDITmms = new ING(0); //  Время задержки сброса
     private CURVE tmACrv = new CURVE(); //  Тип графика рабочих характеристик
     private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
 

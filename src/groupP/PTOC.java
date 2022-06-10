@@ -1,10 +1,11 @@
 package groupP;
 
-import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
+import dataManagement.ASG;
+import dataManagement.ENG;
+import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
+import dataValue.Attribute;
 import dataValue.WYE;
 import logical.LN;
 
@@ -15,34 +16,55 @@ import logical.LN;
 
 public class PTOC extends LN {
 
-    private WYE a = new WYE();
+    private WYE A = new WYE();
+    private ACT op = new ACT();
+    private ACD str = new ACD();
+    private ING OpDlTmms = new ING(10); //Выдержка времени
+    private ASG StrVal = new ASG(0f); //Уставка срабатывания
+    private ENG DirMod = new ENG();
+    private Attribute<Boolean> Pusk = new Attribute<>(false);
+    private Attribute<Boolean> acceleration = new Attribute<>(false);
 
-    // Информация о статусе
-    private ACD str = new ACD(); //  Пуск
-    private ACT op = new ACT(); //  Срабатывание
+    private int count = 0;
 
-    // Управление
-    private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
-
-    // Параметры настройки
-    private CURVE tmACrv = new CURVE(); //  Тип рабочей кривой
-    private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
-    private CSD tmASt = new CSD(); //  Характеристика активной кривой
-    private Float strVal = 0.0f; //  Начальное значение
-    private ASG tmMult = new ASG(); //  Множитель набора времени
-    private ING minOpTmms = new ING(); //  Минимальное время работы
-    private ING maxOpTmms = new ING(); //  Максимальное время работы
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ENG typRsCrv = new ENG(); //  Тип кривой сброса
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
-    private ENG dirMod = new ENG(); //  Направленный режим
-
-    public ACD getStr() {
-        return str;
+    public Attribute<Boolean> getAcceleration() {
+        return acceleration;
     }
 
-    public void setStr(ACD str) {
-        this.str = str;
+    public void setAcceleration(Attribute<Boolean> acceleration) {
+        this.acceleration = acceleration;
+    }
+
+    public Attribute<Boolean> getPusk() {
+        return Pusk;
+    }
+
+    public void setPusk(Attribute<Boolean> pusk) {
+        Pusk = pusk;
+    }
+
+    public ING getOpDlTmms() {
+        return OpDlTmms;
+    }
+
+    public void setOpDlTmms(ING opDlTmms) {
+        OpDlTmms = opDlTmms;
+    }
+
+    public ASG getStrVal() {
+        return StrVal;
+    }
+
+    public void setStrVal(Float strVal) {
+        StrVal.getSetMag().getF().setValue(strVal);
+    }
+
+    public WYE getA() {
+        return A;
+    }
+
+    public void setA(WYE a) {
+        A = a;
     }
 
     public ACT getOp() {
@@ -53,112 +75,63 @@ public class PTOC extends LN {
         this.op = op;
     }
 
-    public INC getOpCntRs() {
-        return opCntRs;
+    public ACD getStr() {
+        return str;
     }
 
-    public void setOpCntRs(INC opCntRs) {
-        this.opCntRs = opCntRs;
-    }
-
-    public CURVE getTmACrv() {
-        return tmACrv;
-    }
-
-    public void setTmACrv(CURVE tmACrv) {
-        this.tmACrv = tmACrv;
-    }
-
-    public CSG getTmAChr33() {
-        return tmAChr33;
-    }
-
-    public void setTmAChr33(CSG tmAChr33) {
-        this.tmAChr33 = tmAChr33;
-    }
-
-    public CSD getTmASt() {
-        return tmASt;
-    }
-
-    public void setTmASt(CSD tmASt) {
-        this.tmASt = tmASt;
-    }
-
-    public Float getStrVal() {
-        return strVal;
-    }
-
-    public void setStrVal(float strVal) {
-        this.strVal = strVal;
-    }
-
-    public ASG getTmMult() {
-        return tmMult;
-    }
-
-    public void setTmMult(ASG tmMult) {
-        this.tmMult = tmMult;
-    }
-
-    public ING getMinOpTmms() {
-        return minOpTmms;
-    }
-
-    public void setMinOpTmms(ING minOpTmms) {
-        this.minOpTmms = minOpTmms;
-    }
-
-    public ING getMaxOpTmms() {
-        return maxOpTmms;
-    }
-
-    public void setMaxOpTmms(ING maxOpTmms) {
-        this.maxOpTmms = maxOpTmms;
-    }
-
-    public ING getOpDlTmms() {
-        return opDlTmms;
-    }
-
-    public void setOpDlTmms(ING opDlTmms) {
-        this.opDlTmms = opDlTmms;
-    }
-
-    public ENG getTypRsCrv() {
-        return typRsCrv;
-    }
-
-    public void setTypRsCrv(ENG typRsCrv) {
-        this.typRsCrv = typRsCrv;
-    }
-
-    public ING getRsDlTmms() {
-        return rsDlTmms;
-    }
-
-    public void setRsDlTmms(ING rsDlTmms) {
-        this.rsDlTmms = rsDlTmms;
+    public void setStr(ACD str) {
+        this.str = str;
     }
 
     public ENG getDirMod() {
-        return dirMod;
+        return DirMod;
     }
 
     public void setDirMod(ENG dirMod) {
-        this.dirMod = dirMod;
-    }
-
-    public WYE getA() {
-        return a;
-    }
-
-    public void setA(WYE a) {
-        this.a = a;
+        DirMod = dirMod;
     }
 
     @Override
     public void process() {
+
+        if (acceleration.getValue()) {
+            getOpDlTmms().getSetVal().setValue(10);
+        }
+
+
+        boolean phsA = false;
+        boolean phsB = false;
+        boolean phsC = false;
+
+        if (DirMod.getDir().getValue().ordinal() == 1) {
+            if (str.getDirGeneral().getValue().ordinal() == 1) {
+                phsA = A.getPhsA().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue() &&
+                        DirMod.getDir().getValue() == str.getDirPhsA().getValue();
+                phsB = A.getPhsB().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue() &&
+                        DirMod.getDir().getValue() == str.getDirPhsB().getValue();
+                phsC = A.getPhsC().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue() &&
+                        DirMod.getDir().getValue() == str.getDirPhsC().getValue();
+            }
+        } else {
+            phsA = A.getPhsA().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue();
+            phsB = A.getPhsB().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue();
+            phsC = A.getPhsC().getcVal().getMag().getF().getValue() > StrVal.getSetMag().getF().getValue();
+        }
+
+        if (phsA || phsB || phsC) {
+            count++;
+            getPusk().setValue(true);
+        } else {
+            count = 0;
+            getPusk().setValue(false);
+        }
+
+        if (count >= OpDlTmms.getSetVal().getValue()) {
+            op.getGeneral().setValue(true);
+            op.getPhsA().setValue(phsA);
+            op.getPhsB().setValue(phsB);
+            op.getPhsC().setValue(phsC);
+        }
 
     }
 }

@@ -1,14 +1,11 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
 import dataStatus.SPS;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -28,11 +25,11 @@ public class PUPF extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ASG strVal = new ASG(); //  Начальное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING rsDITmms = new ING(); //  Время задержки сброса
-    private ASG blkValA = new ASG(); //  Значение блока (минимальный рабочий ток)
-    private ASG blkValV= new ASG(); //  Значение блока (минимальный рабочий напряжение)
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING rsDITmms = new ING(0); //  Время задержки сброса
+    private ASG blkValA = new ASG(0.0F); //  Значение блока (минимальный рабочий ток)
+    private ASG blkValV= new ASG(0.0F); //  Значение блока (минимальный рабочий напряжение)
 
     public ACD getStr() {
         return str;

@@ -1,14 +1,11 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
 import dataManagement.ENG;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -27,9 +24,9 @@ public class PDOP extends LN {
 
     // Параметры настройки
     private ENG dirMod = new ENG(); //  Направленный режим
-    private ASG strVal = new ASG(); //  Начальное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING rsDITmms = new ING(); //  Время задержки сброса
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING rsDITmms = new ING(0); //  Время задержки сброса
 
     public ACD getStr() {
         return str;

@@ -1,15 +1,9 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
-import dataManagement.ENG;
 import dataManagement.ING;
 import dataStatus.ACD;
-import dataStatus.ACT;
-import dataStatus.SPS;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -26,11 +20,11 @@ public class PHAR extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ING haRst = new ING(); //  Количество сдерживаемых гармоник
-    private ASG phStr = new ASG(); //  Начальное значение
-    private ASG phStop = new ASG(); //  Конечное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
+    private ING haRst = new ING(0); //  Количество сдерживаемых гармоник
+    private ASG phStr = new ASG(0.0F); //  Начальное значение
+    private ASG phStop = new ASG(0.0F); //  Конечное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING rsDlTmms = new ING(0); //  Время задержки сброса
 
     public ACD getStr() {
         return str;

@@ -1,15 +1,10 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
-import dataManagement.ENG;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataStatus.SPS;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -28,13 +23,13 @@ public class PMRI extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ASG setA = new ASG(); //  Настройка тока для запуска двигателя
-    private ING setTms = new ING(); //  Установка времени для запуска двигателя
-    private ING maxNumStr = new ING(); //  Максимальное количество запусков
-    private ING maxWrmStr = new ING(); //  Максимальное количество запусков прогрева
-    private ING maxStrTmm = new ING(); //  Период времени для максимального количества запусков
-    private ING eqTmm = new ING(); //  Время выравнивания температуры
-    private ING inhTmm = new ING(); //  Время запрета перезапуска
+    private ASG setA = new ASG(0.0F); //  Настройка тока для запуска двигателя
+    private ING setTms = new ING(0); //  Установка времени для запуска двигателя
+    private ING maxNumStr = new ING(0); //  Максимальное количество запусков
+    private ING maxWrmStr = new ING(0); //  Максимальное количество запусков прогрева
+    private ING maxStrTmm = new ING(0); //  Период времени для максимального количества запусков
+    private ING eqTmm = new ING(0); //  Время выравнивания температуры
+    private ING inhTmm = new ING(0); //  Время запрета перезапуска
 
     public ACD getStr() {
         return str;

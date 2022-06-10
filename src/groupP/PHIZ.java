@@ -1,15 +1,10 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
 import dataManagement.ASG;
-import dataManagement.CURVE;
-import dataManagement.ENG;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataStatus.SPS;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -27,11 +22,11 @@ public class PHIZ extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ASG aStr = new ASG(); //  Начальное значение по току
-    private ASG vStr = new ASG(); //  Начальное значение по напряжению
-    private ASG hVStr = new ASG(); //  Начальное значение напряжения третьей гармоники
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
+    private ASG aStr = new ASG(0.0F); //  Начальное значение по току
+    private ASG vStr = new ASG(0.0F); //  Начальное значение по напряжению
+    private ASG hVStr = new ASG(0.0F); //  Начальное значение напряжения третьей гармоники
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING rsDlTmms = new ING(0); //  Время задержки сброса
 
     public ACD getStr() {
         return str;

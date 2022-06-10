@@ -10,7 +10,6 @@ import dataStatus.ACD;
 import dataStatus.ACT;
 import dataStatus.SPS;
 import dataValue.MV;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -44,15 +43,15 @@ public class PTTR extends LN {
     private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
     private CSD tmTmpSt = new CSD(); //  Характеристика активной кривой
     private CSD tmASt = new CSD(); //  Характеристика активной кривой
-    private ASG tmpMax = new ASG(); //  Максимально допустимая температура
-    private ASG strVal = new ASG(); //  Начальное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING minOpTmms = new ING(); //  Минимальное время работы
-    private ING maxOpTmms = new ING(); //  Максимальное время работы
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
-    private ING consTms1 = new ING(); //  Постоянная времени тепловой модели
-    private ASG almVal = new ASG(); //  Значение сигнала тревоги
-    private ASG dropoutVal = new ASG(); //  Выпадающее значение для команды блокировки закрытия
+    private ASG tmpMax = new ASG(0.0F); //  Максимально допустимая температура
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING minOpTmms = new ING(0); //  Минимальное время работы
+    private ING maxOpTmms = new ING(0); //  Максимальное время работы
+    private ING rsDlTmms = new ING(0); //  Время задержки сброса
+    private ING consTms1 = new ING(0); //  Постоянная времени тепловой модели
+    private ASG almVal = new ASG(0.0F); //  Значение сигнала тревоги
+    private ASG dropoutVal = new ASG(0.0F); //  Выпадающее значение для команды блокировки закрытия
 
     public ACD getStr() {
         return str;

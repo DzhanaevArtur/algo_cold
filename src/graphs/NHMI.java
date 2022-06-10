@@ -37,8 +37,8 @@ public class NHMI extends LN {
 		chart.setAntiAlias(true);
 
 		ChartPanel chartPanel = new ChartPanel(chart);
-		
-		frame.setTitle("МЭИ РЗиАЭ");
+
+		frame.setTitle("МЭИ РЗиАЭ АРЗАиПрРеал");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(chartPanel);
 		frame.setSize(1280,720);

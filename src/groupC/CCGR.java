@@ -43,7 +43,7 @@ public class CCGR extends LN {
     private SPC auto = new SPC(); //  Автоматический или ручной
 
     // Настройки
-    private ASG oilTmpSet = new ASG(); //  Заданное значение температуры масла
+    private ASG oilTmpSet = new ASG(0.0F); //  Заданное значение температуры масла
 
     public INS getOpTmh() {
         return OpTmh;

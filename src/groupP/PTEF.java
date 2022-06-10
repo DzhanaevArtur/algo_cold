@@ -1,11 +1,11 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
+import dataManagement.ASG;
+import dataManagement.ENG;
+import dataManagement.SPC;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -24,7 +24,7 @@ public class PTEF extends LN {
     private SPC fltIndRs = new SPC(); //  Индикация замыкания на землю с возможностью сброса
 
     // Параметры настройки
-    private ASG gndStr = new ASG(); //  Начальное значение заземления
+    private ASG gndStr = new ASG(0.0F); //  Начальное значение заземления
     private ENG dirMod = new ENG(); //  Направленный режим
 
     public ACD getStr() {

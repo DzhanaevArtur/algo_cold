@@ -1,13 +1,9 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.ASG;
-import dataManagement.CURVE;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -25,7 +21,7 @@ public class PDIR extends LN {
     private INC opCntRs = new INC(); //  Сбрасываемый счетчик операций
 
     // Параметры настройки
-    private ING rsDITmms = new ING(); //  Время задержки сброса
+    private ING rsDITmms = new ING(0); //  Время задержки сброса
 
     public ACD getStr() {
         return str;

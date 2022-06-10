@@ -1,14 +1,10 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.ASG;
-import dataManagement.CURVE;
 import dataManagement.ENG;
 import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -30,7 +26,7 @@ public class PTRC extends LN {
 
     // Параметры настройки
     private ENG trMod = new ENG(); //  Режим отключения
-    private ING trPlsTmms = new ING(); //  Время импульса отключения
+    private ING trPlsTmms = new ING(0); //  Время импульса отключения
 
     public ACT getTr() {
         return tr;

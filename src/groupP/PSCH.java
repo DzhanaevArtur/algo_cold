@@ -1,12 +1,11 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
-import dataStatus.ACD;
+import dataManagement.ENG;
+import dataManagement.ING;
+import dataManagement.ORG;
 import dataStatus.ACT;
 import dataStatus.SPS;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -33,13 +32,13 @@ public class PSCH extends LN {
     // Параметры настройки
     private ORG rxSrc1 = new ORG(); //  Источник информации об активации RxPrm или RxBlk, ссылается на ACT
     private ORG rxSrcTr1 = new ORG(); //  Источник информации об активации RxTr, ссылается на ACT
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING crdTmms = new ING(); //  Таймер согласования для схемы блокировки
-    private ING durTmms = new ING(); //  Минимальная продолжительность TxPerm в случае срабатывания PSCH
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING crdTmms = new ING(0); //  Таймер согласования для схемы блокировки
+    private ING durTmms = new ING(0); //  Минимальная продолжительность TxPerm в случае срабатывания PSCH
     private ENG unBlkMod = new ENG(); //  Режим разблокировки функции для типа схемы
-    private ING unBlkTmms = new ING(); //  Время разблокировки
+    private ING unBlkTmms = new ING(0); //  Время разблокировки
     private ENG weiMod = new ENG(); //  Режим функции подачи слабого конца
-    private ING weiTmms = new ING(); //  Время согласования для функции подачи слабого конца
+    private ING weiTmms = new ING(0); //  Время согласования для функции подачи слабого конца
 
     public ACT getTxPrm() {
         return txPrm;

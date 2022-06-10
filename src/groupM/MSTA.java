@@ -39,7 +39,7 @@ public class MSTA extends LN {
     private SPC evStr = new SPC();
 
 // Параметры настройки
-    private ASG evTmms = new ASG();
+    private ASG evTmms = new ASG(0.0F);
 
     public INS geteEHealth() {
         return eEHealth;

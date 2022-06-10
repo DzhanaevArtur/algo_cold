@@ -1,6 +1,7 @@
 package dataManagement;
 
 import data.DATA;
+import dataValue.Attribute;
 
 /*
  * ING (Integer status setting)
@@ -9,88 +10,17 @@ import data.DATA;
 
 public class ING extends DATA {
 
-// Установка состояния
-    private Integer setVal = 0;
+    private Attribute<Integer> setVal = new Attribute<>(0); //Настройка параметра состояния
 
-// Конфигурация, описание и расширение
-    private Integer minVal = 0;
-    private Integer maxVal = 0;
-    private Integer stepSize = 0;
-    private String d = "";
-    private String dU = "";
-    private String cdcNs = "";
-    private String cdcName = "";
-    private String dataNs = "";
+    public ING(Integer setVal) {
+        this.setVal.setValue(setVal);
+    } //Первичное определение параметра состояния
 
-    public Integer getSetVal() {
+    public Attribute<Integer> getSetVal() {
         return setVal;
-    }
+    } //Получение значения состояния
 
-    public void setSetVal(Integer setVal) {
+    public void setSetVal(Attribute<Integer> setVal) {
         this.setVal = setVal;
-    }
-
-    public Integer getMinVal() {
-        return minVal;
-    }
-
-    public void setMinVal(Integer minVal) {
-        this.minVal = minVal;
-    }
-
-    public Integer getMaxVal() {
-        return maxVal;
-    }
-
-    public void setMaxVal(Integer maxVal) {
-        this.maxVal = maxVal;
-    }
-
-    public Integer getStepSize() {
-        return stepSize;
-    }
-
-    public void setStepSize(Integer stepSize) {
-        this.stepSize = stepSize;
-    }
-
-    public String getD() {
-        return d;
-    }
-
-    public void setD(String d) {
-        this.d = d;
-    }
-
-    public String getdU() {
-        return dU;
-    }
-
-    public void setdU(String dU) {
-        this.dU = dU;
-    }
-
-    public String getCdcNs() {
-        return cdcNs;
-    }
-
-    public void setCdcNs(String cdcNs) {
-        this.cdcNs = cdcNs;
-    }
-
-    public String getCdcName() {
-        return cdcName;
-    }
-
-    public void setCdcName(String cdcName) {
-        this.cdcName = cdcName;
-    }
-
-    public String getDataNs() {
-        return dataNs;
-    }
-
-    public void setDataNs(String dataNs) {
-        this.dataNs = dataNs;
-    }
+    } //Определение
 }

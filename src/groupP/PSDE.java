@@ -1,11 +1,12 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
+import dataManagement.ASG;
+import dataManagement.ENG;
+import dataManagement.ING;
+import dataManagement.SPC;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -24,11 +25,11 @@ public class PSDE extends LN {
     private SPC fltIndRs = new SPC(); //  Индикация замыкания на землю с возможностью сброса
 
     // Параметры настройки
-    private ASG ang = new ASG(); //  Угол между напряжением (U0) и током (I0)
-    private ASG gndStr = new ASG(); //  Начальное значение заземления (3 U0)
-    private ASG gndOp = new ASG(); //  Рабочее значение заземления (3 I0)
-    private ING strDlTmms = new ING(); //  Время задержки запуска
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
+    private ASG ang = new ASG(0.0F); //  Угол между напряжением (U0) и током (I0)
+    private ASG gndStr = new ASG(0.0F); //  Начальное значение заземления (3 U0)
+    private ASG gndOp = new ASG(0.0F); //  Рабочее значение заземления (3 I0)
+    private ING strDlTmms = new ING(0); //  Время задержки запуска
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
     private ENG dirMod = new ENG(); //  Направленный режим
 
     public ACD getStr() {

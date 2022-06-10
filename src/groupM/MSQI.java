@@ -1,158 +1,102 @@
 package groupM;
 
-import dataDescription.DPL;
-import dataStatus.INS;
-import dataValue.*;
-import logical.LN;
-
 /*
  * MSQI (Consistency and unbalance measurements)
  * Последовательность и небаланс
  */
 
+import dataAttribute.Vector;
+import dataValue.SEQ;
+import dataValue.WYE;
+import logical.LN;
+
 public class MSQI extends LN {
 
-// Информация об общих логических узлах
-    private INS eEHealth = new INS();
-    private DPL eEName = new DPL();
+    private SEQ SeqA = new SEQ();
+    private SEQ SeqV = new SEQ();
 
-// Измеренные значения
-    private SEQ seqA = new SEQ();
-    private SEQ seqV = new SEQ();
-    private SEQ dQ0Seq = new SEQ();
-    private WYE imbA = new WYE();
-    private MV imbNgA = new MV();
-    private MV imbNgV = new MV();
-    private DEL imbPPV = new DEL();
-    private WYE imbV = new WYE();
-    private MV imbZroA = new MV();
-    private MV imbZroV = new MV();
-    private MV maxImbA = new MV();
-    private MV maxImbPPV = new MV();
-    private MV maxImbV = new MV();
+    private WYE A = new WYE();
+    private WYE V = new WYE();
 
-    public INS geteEHealth() {
-        return eEHealth;
-    }
+    private Vector phA = new Vector();
+    private Vector phB = new Vector();
+    private Vector phC = new Vector();
 
-    public void seteEHealth(INS eEHealth) {
-        this.eEHealth = eEHealth;
-    }
-
-    public DPL geteEName() {
-        return eEName;
-    }
-
-    public void seteEName(DPL eEName) {
-        this.eEName = eEName;
-    }
 
     public SEQ getSeqA() {
-        return seqA;
+        return SeqA;
     }
 
     public void setSeqA(SEQ seqA) {
-        this.seqA = seqA;
+        SeqA = seqA;
     }
 
     public SEQ getSeqV() {
-        return seqV;
+        return SeqV;
     }
 
     public void setSeqV(SEQ seqV) {
-        this.seqV = seqV;
+        SeqV = seqV;
     }
 
-    public SEQ getdQ0Seq() {
-        return dQ0Seq;
+    public WYE getA() {
+        return A;
     }
 
-    public void setdQ0Seq(SEQ dQ0Seq) {
-        this.dQ0Seq = dQ0Seq;
+    public void setA(WYE a) {
+        A = a;
     }
 
-    public WYE getImbA() {
-        return imbA;
+    public WYE getV() {
+        return V;
     }
 
-    public void setImbA(WYE imbA) {
-        this.imbA = imbA;
+    public void setV(WYE v) {
+        V = v;
     }
 
-    public MV getImbNgA() {
-        return imbNgA;
-    }
-
-    public void setImbNgA(MV imbNgA) {
-        this.imbNgA = imbNgA;
-    }
-
-    public MV getImbNgV() {
-        return imbNgV;
-    }
-
-    public void setImbNgV(MV imbNgV) {
-        this.imbNgV = imbNgV;
-    }
-
-    public DEL getImbPPV() {
-        return imbPPV;
-    }
-
-    public void setImbPPV(DEL imbPPV) {
-        this.imbPPV = imbPPV;
-    }
-
-    public WYE getImbV() {
-        return imbV;
-    }
-
-    public void setImbV(WYE imbV) {
-        this.imbV = imbV;
-    }
-
-    public MV getImbZroA() {
-        return imbZroA;
-    }
-
-    public void setImbZroA(MV imbZroA) {
-        this.imbZroA = imbZroA;
-    }
-
-    public MV getImbZroV() {
-        return imbZroV;
-    }
-
-    public void setImbZroV(MV imbZroV) {
-        this.imbZroV = imbZroV;
-    }
-
-    public MV getMaxImbA() {
-        return maxImbA;
-    }
-
-    public void setMaxImbA(MV maxImbA) {
-        this.maxImbA = maxImbA;
-    }
-
-    public MV getMaxImbPPV() {
-        return maxImbPPV;
-    }
-
-    public void setMaxImbPPV(MV maxImbPPV) {
-        this.maxImbPPV = maxImbPPV;
-    }
-
-    public MV getMaxImbV() {
-        return maxImbV;
-    }
-
-    public void setMaxImbV(MV maxImbV) {
-        this.maxImbV = maxImbV;
-    }
 
     @Override
     public void process() {
+        seq(A, SeqA);
+        seq(V, SeqV);
+    }
+
+    private void seq(WYE wye, SEQ seq) {
+
+        phB.setMag(wye.getPhsB().getcVal().getMag().getF().getValue());
+        phB.setAng(wye.getPhsB().getcVal().getAng().getF().getValue() + 120);
+        phB.setMag(wye.getPhsC().getcVal().getMag().getF().getValue());
+        phB.setAng(wye.getPhsC().getcVal().getAng().getF().getValue() - 120);
+
+        seq.getC1().getcVal().setByOrt(
+                (phA.getVectorX().getF().getValue() +
+                        phB.getVectorX().getF().getValue() +
+                        phC.getVectorX().getF().getValue()) / 3,
+                (phA.getVectorY().getF().getValue() +
+                        phB.getVectorY().getF().getValue() +
+                        phC.getVectorY().getF().getValue()) / 3);
+
+        phB.setMag(wye.getPhsB().getcVal().getMag().getF().getValue());
+        phB.setAng(wye.getPhsB().getcVal().getAng().getF().getValue() - 120);
+        phB.setMag(wye.getPhsC().getcVal().getMag().getF().getValue());
+        phB.setAng(wye.getPhsC().getcVal().getAng().getF().getValue() + 120);
+
+        seq.getC2().getcVal().setByOrt(
+                (phA.getVectorX().getF().getValue() +
+                        phB.getVectorX().getF().getValue() +
+                        phC.getVectorX().getF().getValue()) / 3,
+                (phA.getVectorY().getF().getValue() +
+                        phB.getVectorY().getF().getValue() +
+                        phC.getVectorY().getF().getValue()) / 3);
+
+        seq.getC3().getcVal().setByOrt(
+                (wye.getPhsA().getcVal().getVectorX().getF().getValue() +
+                        wye.getPhsB().getcVal().getVectorX().getF().getValue() +
+                        wye.getPhsC().getcVal().getVectorX().getF().getValue()) / 3,
+                (wye.getPhsA().getcVal().getVectorY().getF().getValue() +
+                        wye.getPhsB().getcVal().getVectorY().getF().getValue() +
+                        wye.getPhsC().getcVal().getVectorY().getF().getValue()) / 3);
 
     }
 }

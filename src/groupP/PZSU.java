@@ -1,11 +1,10 @@
 package groupP;
 
 import control.INC;
-import dataDescription.CSD;
-import dataManagement.*;
+import dataManagement.ASG;
+import dataManagement.ING;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -23,9 +22,9 @@ public class PZSU extends LN {
     private INC opCntRs = new INC(); //  Счетчик числа переключений со сбросом
 
     // Параметры настройки
-    private ASG strVal = new ASG(); //  Начальное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ING rsDlTmms = new ING(0); //  Время задержки сброса
 
     public ACD getStr() {
         return str;

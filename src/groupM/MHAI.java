@@ -52,14 +52,14 @@ public class MHAI extends LN {
     private WYE hTif = new WYE();
 
 // Параметры настройки
-    private ASG hzSet = new ASG();
-    private ASG evTmms = new ASG();
-    private ING numCyc = new ING();
-    private ASG thdAVal = new ASG();
-    private ASG thdVVal = new ASG();
-    private ING thdATmms = new ING();
-    private ING thdVTmms = new ING();
-    private ASG nomA = new ASG();
+    private ASG hzSet = new ASG(0.0F);
+    private ASG evTmms = new ASG(0.0F);
+    private ING numCyc = new ING(0);
+    private ASG thdAVal = new ASG(0.0F);
+    private ASG thdVVal = new ASG(0.0F);
+    private ING thdATmms = new ING(0);
+    private ING thdVTmms = new ING(0);
+    private ASG nomA = new ASG(0.0F);
 
     public INS geteEHealth() {
         return eEHealth;

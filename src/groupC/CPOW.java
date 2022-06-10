@@ -25,7 +25,7 @@ public class CPOW extends LN {
     private DPC posC = new DPC(); //  Переключатель L3
 
     // Настройки
-    private ING maxDlTmms = new ING(); //  Максимально допустимое время задержки
+    private ING maxDlTmms = new ING(0); //  Максимально допустимое время задержки
 
     public SPS getTmExc() {
         return tmExc;

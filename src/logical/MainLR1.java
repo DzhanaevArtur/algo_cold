@@ -1,20 +1,22 @@
+package logical;
+
 import graphs.NHMI;
 import graphs.NHMISignal;
 import groupC.CSWI;
 import groupM.MMXU;
 import groupP.PTOC;
 import groupX.XCBR;
-import logical.LSVC;
 
-public class Main {
+public class MainLR1 {
 
     public static void main(String[] args) {
+
+        System.out.println("Лабораторная работа №1");
         LSVC lsvc = new LSVC();
         NHMI nhmi = new NHMI();
         MMXU mmxu = new MMXU();
         PTOC PTOC1 = new PTOC();
         PTOC PTOC2 = new PTOC();
-        PTOC PTOC3 = new PTOC();
         CSWI cswi = new CSWI();
         XCBR xcbr = new XCBR();
 
@@ -24,16 +26,13 @@ public class Main {
         mmxu.setiL2(lsvc.getSignals().get(1));
         mmxu.setiL3(lsvc.getSignals().get(2));
 
-        PTOC1.setStrVal(3900f);
-        PTOC2.setStrVal(3300f);
-        PTOC3.setStrVal(533f);
+        PTOC1.setStrVal(3956.1f);
+        PTOC2.setStrVal(3347.5f);
         PTOC1.setA(mmxu.getA());
         PTOC2.setA(mmxu.getA());
-        PTOC3.setA(mmxu.getA());
 
         cswi.setOpOpn1(PTOC1.getOp());
         cswi.setOpOpn2(PTOC2.getOp());
-        cswi.setOpOpn3(PTOC3.getOp());
         cswi.setStVal(xcbr.getPos());
 
         xcbr.setCtVal(cswi.getCtVal());
@@ -48,22 +47,19 @@ public class Main {
                 new NHMISignal("Ток l3", lsvc.getSignals().get(2).getInstMag().getF())
         );
         nhmi.addSignals(
-                new NHMISignal("Ток l1 MSD", mmxu.getA().getPhsA().getcVal().getMag().getF())
+                new NHMISignal("Ток l1 Fourier", mmxu.getA().getPhsA().getcVal().getMag().getF())
         );
         nhmi.addSignals(
-                new NHMISignal("Ток l2 MSD", mmxu.getA().getPhsB().getcVal().getMag().getF())
+                new NHMISignal("Ток l2 Fourier", mmxu.getA().getPhsB().getcVal().getMag().getF())
         );
         nhmi.addSignals(
-                new NHMISignal("Ток l3 MSD", mmxu.getA().getPhsC().getcVal().getMag().getF())
+                new NHMISignal("Ток l3 Fourier", mmxu.getA().getPhsC().getcVal().getMag().getF())
         );
         nhmi.addSignals(
-                new NHMISignal("PIOC1", PTOC1.getOp().getGeneral())
+                new NHMISignal("PTOC1", PTOC1.getOp().getGeneral())
         );
         nhmi.addSignals(
-                new NHMISignal("PIOC2", PTOC2.getOp().getGeneral())
-        );
-        nhmi.addSignals(
-                new NHMISignal("PIOC3", PTOC3.getOp().getGeneral())
+                new NHMISignal("PTOC2", PTOC2.getOp().getGeneral())
         );
         nhmi.addSignals(
                 new NHMISignal("CSWI", cswi.getCtVal().getStVal())
@@ -77,7 +73,6 @@ public class Main {
             mmxu.process();
             PTOC1.process();
             PTOC2.process();
-            PTOC3.process();
             cswi.process();
             xcbr.process();
 

@@ -8,7 +8,7 @@ import dataValue.SAV;
  */
 public class Fourier extends Filter {
 
-    private int samples = 80;
+    private int samples = 20;
     private int count = 0;
     private int harmonic = 0;
     private float k = (float) 2 / samples;

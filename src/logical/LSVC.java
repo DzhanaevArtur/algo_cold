@@ -63,15 +63,6 @@ public class LSVC extends LN {
         System.out.printf("Осциллограмма загружена, количество сигналов: %s, количество выборок: %s %n%n", numberOfSignals, datFile.size());
     }
 
-
-    /**
-     * Полное считывание файлов конфиг и CSV
-     * Определение итератора для прохождения по прочитанному файлу
-     * Определение количества аналоговых и дискретных сигналов
-     * Формирование списка мгновенных значений
-     *
-     * @param cfgPath - путь к файлу без расширения файла конфиг и дата файл должны лежать вместе
-     */
     public void readCSV(String cfgPath) {
         cfgFile = readFile(cfgPath + ".cfg");
         csvFile = readFile(cfgPath + ".csv");
@@ -87,12 +78,6 @@ public class LSVC extends LN {
         System.out.printf("Осциллограмма загружена, количество сигналов: %s, количество выборок: %s %n%n", numberOfSignals, csvFile.size());
     }
 
-    /**
-     * Запись передаваемого файла в список
-     *
-     * @param path - путь к файлу
-     * @return - список всех строк из файла
-     */
     private List<String> readFile(String path) {
         List<String> fileEntry = new ArrayList<>();
         try (Stream<String> lines = Files.newBufferedReader(Paths.get(path)).lines()) {

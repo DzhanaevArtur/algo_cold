@@ -5,7 +5,6 @@ import dataDescription.CSD;
 import dataManagement.*;
 import dataStatus.ACD;
 import dataStatus.ACT;
-import dataValue.WYE;
 import logical.LN;
 
 /*
@@ -26,13 +25,13 @@ public class PTUC extends LN {
     private CURVE tmACrv = new CURVE(); //  Тип рабочей кривой
     private CSG tmAChr33 = new CSG(); //  Определение характеристик многострочной кривой
     private CSD tmASt = new CSD(); //  Характеристика активной кривой
-    private ASG strVal = new ASG(); //  Начальное значение
-    private ING opDlTmms = new ING(); //  Время задержки срабатывания
-    private ASG tmMult = new ASG(); //  Множитель набора времени
-    private ING minOpTmms = new ING(); //  Минимальное время работы
-    private ING maxOpTmms = new ING(); //  Максимальное время работы
+    private ASG strVal = new ASG(0.0F); //  Начальное значение
+    private ING opDlTmms = new ING(0); //  Время задержки срабатывания
+    private ASG tmMult = new ASG(0.0F); //  Множитель набора времени
+    private ING minOpTmms = new ING(0); //  Минимальное время работы
+    private ING maxOpTmms = new ING(0); //  Максимальное время работы
     private ENG typRsCrv = new ENG(); //  Тип кривой сброса
-    private ING rsDlTmms = new ING(); //  Время задержки сброса
+    private ING rsDlTmms = new ING(0); //  Время задержки сброса
     private ENG dirMod = new ENG(); //  Направленный режим
 
     public ACD getStr() {
